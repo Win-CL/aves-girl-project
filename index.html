@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AVES GIRL PROJECT</title>
+
+    <meta name="description" content="AVES GIRL PROJECT — 鳥類をモチーフとした少女たちの創作プロジェクト。">
+
+    <style>
+        /* ========================================
+           AVES GIRL PROJECT
+           Main Style
+        ======================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans JP",
+                "Yu Gothic",
+                "Hiragino Kaku Gothic ProN",
+                sans-serif;
+
+            background: #080a12;
+            color: #f4f5f8;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ========================================
+           HEADER
+        ======================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            letter-spacing: 0.18em;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+        }
+
+        nav a {
+            opacity: 0.75;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 140px 30px 100px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(70, 90, 150, 0.25),
+                    transparent 45%
+                ),
+                #080a12;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            letter-spacing: 0.45em;
+            margin-bottom: 25px;
+            opacity: 0.65;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+
+            font-size: clamp(48px, 9vw, 110px);
+
+            letter-spacing: 0.08em;
+            line-height: 1;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin: 0 auto 45px;
+
+            font-size: 15px;
+            opacity: 0.75;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            padding: 13px 35px;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            font-size: 12px;
+            letter-spacing: 0.2em;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #fff;
+            color: #080a12;
+        }
+
+        /* ========================================
+           COMMON SECTION
+        ======================================== */
+
+        section {
+            padding: 120px 30px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            font-family: Georgia, serif;
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            opacity: 0.45;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+
+            font-size: clamp(34px, 5vw, 60px);
+
+            letter-spacing: 0.08em;
+
+            margin-top: 8px;
+        }
+
+        .section-line {
+            width: 70px;
+            height: 1px;
+
+            background: rgba(255,255,255,0.5);
+
+            margin-top: 25px;
+        }
+
+        /* ========================================
+           CHARACTER
+        ======================================== */
+
+        #characters {
+            background: #0b0e18;
+        }
+
+        .character-list {
+            display: flex;
+            flex-direction: column;
+            gap: 90px;
+        }
+
+        .character {
+            min-height: 600px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            background: #10131f;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            overflow: hidden;
+        }
+
+        .character:nth-child(even) .character-image {
+            order: 2;
+        }
+
+        .character:nth-child(even) .character-info {
+            order: 1;
+        }
+
+        .character-image {
+            min-height: 600px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(120,140,200,0.25),
+                    transparent 60%
+                ),
+                #171b29;
+        }
+
+        .image-placeholder {
+            width: 78%;
+            height: 85%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px dashed rgba(255,255,255,0.2);
+
+            color: rgba(255,255,255,0.35);
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+            font-size: 14px;
+            letter-spacing: 0.12em;
+        }
+
+        .character-info {
+            padding: 70px 60px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .character-number {
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            letter-spacing: 0.2em;
+
+            opacity: 0.45;
+
+            margin-bottom: 15px;
+        }
+
+        .character-name {
+            font-size: clamp(25px, 3vw, 38px);
+
+            letter-spacing: 0.05em;
+
+            margin-bottom: 8px;
+        }
+
+        .character-name-en {
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.15em;
+
+            opacity: 0.5;
+
+            margin-bottom: 35px;
+        }
+
+        .character-role {
+            font-size: 13px;
+
+            letter-spacing: 0.15em;
+
+            opacity: 0.7;
+
+            margin-bottom: 25px;
+        }
+
+        .character-description {
+            font-size: 14px;
+
+            color: rgba(255,255,255,0.7);
+
+            margin-bottom: 35px;
+        }
+
+        .character-meta {
+            border-top: 1px solid rgba(255,255,255,0.1);
+
+            padding-top: 20px;
+
+            font-size: 12px;
+
+            color: rgba(255,255,255,0.55);
+        }
+
+        /* ========================================
+           WORLD
+        ======================================== */
+
+        #world {
+            background: #080a12;
+        }
+
+        .world-text {
+            max-width: 850px;
+
+            font-size: 16px;
+
+            color: rgba(255,255,255,0.72);
+        }
+
+        .world-lead {
+            font-size: 24px;
+
+            color: #fff;
+
+            margin-bottom: 35px;
+        }
+
+        /* ========================================
+           GALLERY
+        ======================================== */
+
+        #gallery {
+            background: #0b0e18;
+        }
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #151927;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            color: rgba(255,255,255,0.35);
+
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.12em;
+        }
+
+        /* ========================================
+           COPYRIGHT
+        ======================================== */
+
+        #copyright {
+            background: #05060b;
+
+            text-align: center;
+
+            padding: 100px 30px;
+        }
+
+        .copyright-title {
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+
+            letter-spacing: 0.12em;
+
+            margin-bottom: 30px;
+        }
+
+        .copyright-text {
+            max-width: 700px;
+
+            margin: 0 auto 35px;
+
+            font-size: 13px;
+
+            color: rgba(255,255,255,0.6);
+        }
+
+        .copyright-notice {
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            padding: 30px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            font-size: 13px;
+
+            color: rgba(255,255,255,0.75);
+        }
+
+        footer {
+            padding: 25px;
+
+            text-align: center;
+
+            font-size: 11px;
+
+            letter-spacing: 0.12em;
+
+            color: rgba(255,255,255,0.35);
+
+            background: #05060b;
+        }
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+            }
+
+            section {
+                padding: 90px 20px;
+            }
+
+            .character {
+                grid-template-columns: 1fr;
+            }
+
+            .character:nth-child(even) .character-image {
+                order: 1;
+            }
+
+            .character:nth-child(even) .character-info {
+                order: 2;
+            }
+
+            .character-image {
+                min-height: 500px;
+            }
+
+            .character-info {
+                padding: 45px 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+         HEADER
+    ======================================== -->
+
+    <header>
+        <div class="header-inner">
+
+            <a href="#top" class="logo">
+                AVES GIRL
+            </a>
+
+            <nav>
+                <a href="#characters">CHARACTERS</a>
+                <a href="#world">WORLD</a>
+                <a href="#gallery">GALLERY</a>
+                <a href="#copyright">COPYRIGHT</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ========================================
+         HERO
+    ======================================== -->
+
+    <main id="top">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-subtitle">
+                    ORIGINAL CHARACTER PROJECT
+                </p>
+
+                <h1>
+                    AVES GIRL
+                </h1>
+
+                <p class="hero-description">
+                    鳥類をモチーフとして生まれた少女たち。
+                    <br>
+                    12人のキャラクターから広がる、
+                    AVES GIRL PROJECTの世界。
+                </p>
+
+                <a href="#characters" class="hero-button">
+                    MEET THE GIRLS
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             CHARACTERS
+        ======================================== -->
+
+        <section id="characters">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        01 / CHARACTERS
+                    </div>
+
+                    <h2 class="section-title">
+                        CHARACTERS
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="character-list">
+
+
+                    <!-- 01 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 01<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                01
+                            </div>
+
+                            <h3 class="character-name">
+                                鳴無 文乃
+                            </h3>
+
+                            <div class="character-name-en">
+                                FUMINO OTONASHI
+                            </div>
+
+                            <div class="character-role">
+                                SCOUT / 斥候
+                            </div>
+
+                            <p class="character-description">
+                                口数が少なく、冷静で物静かな少女。
+                                静かな場所と山を好み、誰にも気づかれないほど
+                                静かに行動することができる。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Australian Tawny Frogmouth
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 02 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 02<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                02
+                            </div>
+
+                            <h3 class="character-name">
+                                ライミィ・アバンドール
+                            </h3>
+
+                            <div class="character-name-en">
+                                RAIMY ABANDOR
+                            </div>
+
+                            <div class="character-role">
+                                DJ
+                            </div>
+
+                            <p class="character-description">
+                                明るく自由奔放な天才肌の音楽アーティスト。
+                                音楽と街の喧騒を愛し、あらゆる音を自在に
+                                生み出す才能を持つ。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Superb Lyrebird
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 03 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 03<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                03
+                            </div>
+
+                            <h3 class="character-name">
+                                串木野 依澄
+                            </h3>
+
+                            <div class="character-name-en">
+                                ISUMI KUSHIKINO
+                            </div>
+
+                            <div class="character-role">
+                                SOLDIER / 軍人
+                            </div>
+
+                            <p class="character-description">
+                                規律と誇りを重んじる軍人。
+                                二振りの刀を携え、常に凛とした態度を崩さない。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Bull-headed Shrike
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 04 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 04<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                04
+                            </div>
+
+                            <h3 class="character-name">
+                                知代 雪
+                            </h3>
+
+                            <div class="character-name-en">
+                                SETSU TOMOSHIRO
+                            </div>
+
+                            <div class="character-role">
+                                SHRINE MAIDEN / 巫女
+                            </div>
+
+                            <p class="character-description">
+                                神社に仕える少女。
+                                穏やかで親しみやすく、どこか神秘的な雰囲気を
+                                まとっている。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Long-tailed Tit
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 05 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 05<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                05
+                            </div>
+
+                            <h3 class="character-name">
+                                ペドローナ・ジェスター
+                            </h3>
+
+                            <div class="character-name-en">
+                                PEDRONA JESTER
+                            </div>
+
+                            <div class="character-role">
+                                CLOWN / 道化師
+                            </div>
+
+                            <p class="character-description">
+                                人を楽しませることを愛する道化師。
+                                嘘さえも魅力へと変えてしまう、不思議な少女。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Atlantic Puffin
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 06 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 06<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                06
+                            </div>
+
+                            <h3 class="character-name">
+                                青 紹彬
+                            </h3>
+
+                            <div class="character-name-en">
+                                QING SHAOBIN
+                            </div>
+
+                            <div class="character-role">
+                                ACROBAT / 軽業師
+                            </div>
+
+                            <p class="character-description">
+                                卓越した身体能力を持つ軽業師。
+                                空中を舞うような身軽さと、華麗な身のこなしが特徴。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Common Kingfisher
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 07 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 07<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                07
+                            </div>
+
+                            <h3 class="character-name">
+                                嘉冠 珠月
+                            </h3>
+
+                            <div class="character-name-en">
+                                KAGAFURI MITSUKI
+                            </div>
+
+                            <div class="character-role">
+                                HISTORY TEACHER / 歴史教師
+                            </div>
+
+                            <p class="character-description">
+                                歴史を教える知的な少女。
+                                古い時代の物語と文化を愛し、豊富な知識を持つ。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Eurasian Hoopoe
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 08 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 08<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                08
+                            </div>
+
+                            <h3 class="character-name">
+                                アロア・ファンガレイ
+                            </h3>
+
+                            <div class="character-name-en">
+                                AROA FANGALEY
+                            </div>
+
+                            <div class="character-role">
+                                EXPLORER / 探検家
+                            </div>
+
+                            <p class="character-description">
+                                未知の場所を求めて旅を続ける探検家。
+                                好奇心旺盛で、痕跡や匂いから対象を追跡する能力を持つ。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Southern Brown Kiwi
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 09 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 09<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                09
+                            </div>
+
+                            <h3 class="character-name">
+                                竹清歌 つづら
+                            </h3>
+
+                            <div class="character-name-en">
+                                TAKEKIYOKA TSUZURA
+                            </div>
+
+                            <div class="character-role">
+                                COOK / 中華料理屋
+                            </div>
+
+                            <p class="character-description">
+                                中華料理屋を営む少女。
+                                親しみやすく温かな雰囲気を持ち、
+                                美味しい料理で人々をもてなす。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Eurasian Tree Sparrow
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 10 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 10<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                10
+                            </div>
+
+                            <h3 class="character-name">
+                                笠原 トワ
+                            </h3>
+
+                            <div class="character-name-en">
+                                KASAHARA TOWA
+                            </div>
+
+                            <div class="character-role">
+                                YO-KAI / 妖怪
+                            </div>
+
+                            <p class="character-description">
+                                長い旅路の果てに現れる、どこか掴みどころのない少女。
+                                悠然とした佇まいと独特の存在感を持つ。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Short-tailed Albatross
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 11 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 11<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                11
+                            </div>
+
+                            <h3 class="character-name">
+                                イヴ・シャルベール・ダーウィン
+                            </h3>
+
+                            <div class="character-name-en">
+                                EVE CHARBERT DARWIN
+                            </div>
+
+                            <div class="character-role">
+                                BIOLOGIST / MAD SCIENTIST
+                            </div>
+
+                            <p class="character-description">
+                                生物学を研究する天才肌のマッドサイエンティスト。
+                                陰気で卑屈な性格だが、珍しいものや未知の現象には
+                                強烈な好奇心を示す。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Galápagos Finch
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 12 -->
+
+                    <article class="character">
+
+                        <div class="character-image">
+
+                            <div class="image-placeholder">
+                                CHARACTER 12<br>
+                                IMAGE
+                            </div>
+
+                        </div>
+
+                        <div class="character-info">
+
+                            <div class="character-number">
+                                12
+                            </div>
+
+                            <h3 class="character-name">
+                                インレイ・グリントローヴ
+                            </h3>
+
+                            <div class="character-name-en">
+                                INLAY GLINTROVE
+                            </div>
+
+                            <div class="character-role">
+                                YO-KAI / 妖怪
+                            </div>
+
+                            <p class="character-description">
+                                美しいものや珍しいものに強い執着を見せる少女。
+                                螺鈿細工を思わせる独特の美意識を持つ。
+                            </p>
+
+                            <div class="character-meta">
+                                MOTIF — Satin Bowerbird
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             WORLDVIEW
+        ======================================== -->
+
+        <section id="world">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        02 / WORLD
+                    </div>
+
+                    <h2 class="section-title">
+                        WORLD
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+                <div class="world-text">
+
+                    <p class="world-lead">
+                        BIRDS BECOME GIRLS.
+                    </p>
+
+                    <p>
+                        AVES GIRL PROJECTは、
+                        世界中の鳥類をモチーフとして生まれた
+                        オリジナルキャラクターたちの物語。
+                    </p>
+
+                    <br>
+
+                    <p>
+                        それぞれの少女は、一羽の鳥が持つ姿・生態・習性・
+                        生息環境などをデザインや性格、能力へと落とし込んでいる。
+                    </p>
+
+                    <br>
+
+                    <p>
+                        12人の少女たちは、それぞれ異なる個性を持ちながら、
+                        一つの世界の中で交差していく。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             GALLERY
+        ======================================== -->
+
+        <section id="gallery">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        03 / GALLERY
+                    </div>
+
+                    <h2 class="section-title">
+                        GALLERY
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item">GALLERY 01</div>
+                    <div class="gallery-item">GALLERY 02</div>
+                    <div class="gallery-item">GALLERY 03</div>
+                    <div class="gallery-item">GALLERY 04</div>
+                    <div class="gallery-item">GALLERY 05</div>
+                    <div class="gallery-item">GALLERY 06</div>
+                    <div class="gallery-item">GALLERY 07</div>
+                    <div class="gallery-item">GALLERY 08</div>
+                    <div class="gallery-item">GALLERY 09</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             COPYRIGHT
+        ======================================== -->
+
+        <section id="copyright">
+
+            <div class="section-inner">
+
+                <div class="copyright-title">
+                    AVES GIRL PROJECT
+                </div>
+
+                <p class="copyright-text">
+                    © 2026 AVES GIRL PROJECT
+                </p>
+
+                <div class="copyright-notice">
+
+                    <p>
+                        本サイトに掲載されている
+                        AVES GIRL PROJECTのキャラクター、
+                        キャラクターデザイン、設定、イラスト等の
+                        無断利用・転載・複製・二次利用を禁じます。
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Unauthorized use, reproduction,
+                        redistribution or derivative use of the
+                        characters and artwork presented on this site
+                        is prohibited.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        © 2026 AVES GIRL PROJECT.
+        ALL RIGHTS RESERVED.
+
+    </footer>
+
+</body>
+</html>
