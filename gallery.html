@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY | AVES GIRL PROJECT</title>
+
+    <style>
+
+        /* ================================
+           基本設定
+        ================================ */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #080a11;
+            color: #f4f5f8;
+            font-family: "Noto Sans JP", sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================ */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            background: rgba(8,10,17,0.92);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+
+        /* ================================
+           MAIN
+        ================================ */
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px 120px;
+        }
+
+        .page-title {
+            margin-bottom: 70px;
+        }
+
+        .page-title .en {
+            display: block;
+            margin-bottom: 18px;
+            color: rgba(255,255,255,0.45);
+            font-size: 12px;
+            letter-spacing: 0.35em;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: clamp(42px, 8vw, 80px);
+            line-height: 1;
+            letter-spacing: 0.12em;
+        }
+
+
+        /* ================================
+           GALLERY
+        ================================ */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: #10131f;
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .gallery-image {
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: #171b29;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 22px 24px;
+        }
+
+        .gallery-caption .number {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            letter-spacing: 0.25em;
+        }
+
+        .gallery-caption h2 {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: 0.08em;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================ */
+
+        footer {
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.35);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+        }
+
+
+        /* ================================
+           スマートフォン
+        ================================ */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            main {
+                padding: 70px 20px 90px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .gallery-caption {
+                padding: 16px;
+            }
+
+            .gallery-caption h2 {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 16px;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================ -->
+
+    <header>
+
+        <div class="logo">
+            AVES GIRL
+        </div>
+
+        <nav>
+            <a href="index.html">CHARACTERS</a>
+            <a href="world.html">WORLD</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="index.html#copyright">COPYRIGHT</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================ -->
+
+    <main>
+
+        <div class="page-title">
+
+            <span class="en">
+                GALLERY
+            </span>
+
+            <h1>ギャラリー</h1>
+
+        </div>
+
+
+        <!-- ================================
+             GALLERY GRID
+        ================================ -->
+
+        <div class="gallery-grid">
+
+
+            <!-- 01 / 鳴無 文乃 -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/humino.jpg" alt="鳴無 文乃">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">01 / SCOUT</span>
+                    <h2>鳴無 文乃</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 02 / ライミィ・アバンドール -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/raimy.jpg" alt="ライミィ・アバンドール">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">02 / DJ</span>
+                    <h2>ライミィ・アバンドール</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 03 / 串木野 依澄 -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/isumi.jpg" alt="串木野 依澄">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">03 / SOLDIER</span>
+                    <h2>串木野 依澄</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 04 / 知代 雪 -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/setsu.jpg" alt="知代 雪">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">04 / SHRINE MAIDEN</span>
+                    <h2>知代 雪</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 05 / ペドローナ・ジェスター -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/pedrona.jpg" alt="ペドローナ・ジェスター">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">05 / CLOWN</span>
+                    <h2>ペドローナ・ジェスター</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 06 / 青 紹彬 -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/shaobin.jpg" alt="青 紹彬">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">06 / ACROBAT</span>
+                    <h2>青 紹彬</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 07 / 嘉冠 珠月 -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/mitsuki.jpg" alt="嘉冠 珠月">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">07 / HISTORY TEACHER</span>
+                    <h2>嘉冠 珠月</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 08 / アロア・ファンガレイ -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/aroa.jpg" alt="アロア・ファンガレイ">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">08 / EXPLORER</span>
+                    <h2>アロア・ファンガレイ</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 09 / 竹清歌 つづら -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/tsuzura.jpg" alt="竹清歌 つづら">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">09 / COOK</span>
+                    <h2>竹清歌 つづら</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 10 / 笠原 トワ -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/towa.jpg" alt="笠原 トワ">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">10 / YO-KAI</span>
+                    <h2>笠原 トワ</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 11 / イヴ・シャルベール・ダーウィン -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/eve.jpg" alt="イヴ・シャルベール・ダーウィン">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">11 / BIOLOGIST</span>
+                    <h2>イヴ・シャルベール・ダーウィン</h2>
+                </div>
+
+            </article>
+
+
+            <!-- 12 / インレイ・グリントローヴ -->
+
+            <article class="gallery-item">
+
+                <div class="gallery-image">
+                    <img src="images/inlay.jpg" alt="インレイ・グリントローヴ">
+                </div>
+
+                <div class="gallery-caption">
+                    <span class="number">12 / YO-KAI</span>
+                    <h2>インレイ・グリントローヴ</h2>
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================ -->
+
+    <footer>
+        AVES GIRL PROJECT
+    </footer>
+
+</body>
+</html>
