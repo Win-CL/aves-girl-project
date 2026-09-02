@@ -248,11 +248,13 @@
         }
 
         .character-image {
-            min-height: 600px;
+            min-height: 600px; /* 画像エリアの最低高さ */
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; /* Flexboxを使用 */
+            flex-direction: column; /* 画像を縦方向に並べる */
+            justify-content: center; /* 縦方向の中央揃え */
+            align-items: center; /* 横方向の中央揃え */
+            gap: 20px; /* 画像同士を20px離す */
 
             background:
                 radial-gradient(
