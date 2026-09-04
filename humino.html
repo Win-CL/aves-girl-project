@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>鳴無 文乃 | AVES GIRL PROJECT</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #080a12;
+    color: #f4f5f8;
+    font-family: "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+/* HERO */
+
+.character-hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px 70px;
+}
+
+.eyebrow {
+    margin: 0 0 15px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    opacity: 0.55;
+}
+
+.character-name {
+    margin: 0;
+    font-size: clamp(42px, 7vw, 78px);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+}
+
+.character-name-en {
+    margin-top: 18px;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    opacity: 0.55;
+}
+
+/* MAIN */
+
+.character-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px 120px;
+}
+
+.character-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.character-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #11141e;
+}
+
+.image-caption {
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    opacity: 0.45;
+}
+
+/* PROFILE */
+
+.profile {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.profile-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    opacity: 0.45;
+}
+
+.profile-value {
+    font-size: 15px;
+}
+
+/* CHARACTER NOTE */
+
+.character-note {
+    margin-top: 100px;
+    max-width: 760px;
+}
+
+.section-title {
+    margin: 0 0 30px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    opacity: 0.6;
+}
+
+.character-note p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 2.2;
+}
+
+/* BACK */
+
+.back-link {
+    display: inline-block;
+    margin-top: 100px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    font-size: 11px;
+    letter-spacing: 0.15em;
+
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 50px 30px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .header-inner {
+        padding: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .character-hero {
+        padding: 70px 20px 50px;
+    }
+
+    .character-main {
+        padding: 0 20px 80px;
+    }
+
+    .character-visual {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 70px;
+    }
+
+    .profile-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .character-note {
+        margin-top: 70px;
+    }
+
+    .back-link {
+        margin-top: 70px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            AVES GIRL
+        </a>
+
+        <nav>
+            <a href="index.html#characters">CHARACTERS</a>
+            <a href="world.html">WORLD</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="index.html#copyright">COPYRIGHT</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="character-hero">
+
+        <p class="eyebrow">
+            CHARACTER DETAIL / 01
+        </p>
+
+        <h1 class="character-name">
+            鳴無 文乃
+        </h1>
+
+        <p class="character-name-en">
+            FUMINO OTONASHI
+        </p>
+
+    </section>
+
+
+    <section class="character-main">
+
+        <div class="character-visual">
+
+            <div>
+                <img
+                    src="images/humino.jpg"
+                    alt="鳴無 文乃 キャラクタービジュアル"
+                >
+                <p class="image-caption">
+                    CHARACTER VISUAL
+                </p>
+            </div>
+
+            <div>
+                <img
+                    src="images/humino_2.png"
+                    alt="鳴無 文乃 設定イラスト"
+                >
+                <p class="image-caption">
+                    CHARACTER DESIGN
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="profile">
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    ROLE
+                </div>
+                <div class="profile-value">
+                    斥候
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    BIRD MOTIF
+                </div>
+                <div class="profile-value">
+                    オーストラリアガマグチヨタカ
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    SCIENTIFIC NAME
+                </div>
+                <div class="profile-value">
+                    Podargus strigoides
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    FIRST PERSON
+                </div>
+                <div class="profile-value">
+                    私
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    LIKES
+                </div>
+                <div class="profile-value">
+                    キャンプ、静かな場所、山
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-label">
+                    DISLIKES
+                </div>
+                <div class="profile-value">
+                    騒がしい場所、人混み
+                </div>
+            </div>
+
+        </div>
+
+
+        <section class="character-note">
+
+            <h2 class="section-title">
+                CHARACTER
+            </h2>
+
+            <p>
+                口数が少なく、冷静で物静かな少女。
+                静かな場所や自然を好み、周囲の状況を落ち着いて観察している。
+            </p>
+
+        </section>
+
+
+        <a href="index.html#characters" class="back-link">
+            ← BACK TO CHARACTERS
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        © AVES GIRL PROJECT
+    </p>
+</footer>
+
+</body>
+</html>
