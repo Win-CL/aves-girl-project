@@ -521,6 +521,25 @@
                     display: flex;
                 }
 
+            nav.open {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                background: rgba(8, 10, 18, 0.97);
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+            
+            nav.open a {
+                display: block;
+                padding: 18px 30px;
+                text-align: center;
+            }
+                
             section {
                 padding: 90px 20px;
             }
@@ -1331,5 +1350,15 @@
 
     </footer>
 
+    <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+    </script>
+
+    
 </body>
 </html>
