@@ -618,13 +618,13 @@
     .carousel-character {
         position: absolute;
         top: 50%;
-        left: calc(50% + var(--drag-x, 0px));
+        left: 50%;
     
         width: 150px;
         height: 500px;
     
         transform:
-            translate(-50%, -50%)
+            translate(calc(-50% + var(--drag-x, 0px)), -50%)
             scale(0.65);
     
         opacity: 0;
@@ -648,7 +648,7 @@
     
     .carousel-character.is-center {
         transform:
-            translate(-50%, -50%)
+            translate(calc(-50% + var(--drag-x, 0px)), -50%)
             scale(1);
     
         opacity: 1;
@@ -660,7 +660,7 @@
     
     .carousel-character.is-left {
         transform:
-            translate(calc(-50% - 180px), -50%)
+            translate(calc(-50% - 270px + var(--drag-x, 0px)), -50%)
             scale(0.78);
     
         opacity: 0.72;
@@ -672,7 +672,7 @@
     
     .carousel-character.is-right {
         transform:
-            translate(calc(-50% + 180px), -50%)
+            translate(calc(-50% + 270px + var(--drag-x, 0px)), -50%)
             scale(0.78);
     
         opacity: 0.72;
@@ -684,7 +684,7 @@
     
     .carousel-character.is-far-left {
         transform:
-            translate(calc(-50% - 310px), -50%)
+            translate(calc(-50% - 460px + var(--drag-x, 0px)), -50%)
             scale(0.62);
     
         opacity: 0.45;
@@ -695,7 +695,7 @@
     
     .carousel-character.is-far-right {
         transform:
-            translate(calc(-50% + 310px), -50%)
+            translate(calc(-50% + 460px + var(--drag-x, 0px)), -50%)
             scale(0.62);
     
         opacity: 0.45;
@@ -706,7 +706,7 @@
     
     .carousel-character.is-far-far-left {
         transform:
-            translate(calc(-50% - 420px), -50%)
+            translate(calc(-50% - 420px + var(--drag-x, 0px)), -50%)
             scale(0.50);
     
         opacity: 0.22;
@@ -717,7 +717,7 @@
     
     .carousel-character.is-far-far-right {
         transform:
-            translate(calc(-50% + 420px), -50%)
+            translate(calc(-50% + 420px + var(--drag-x, 0px)), -50%)
             scale(0.50);
     
         opacity: 0.22;
@@ -1444,23 +1444,22 @@
             const carouselArea = document.querySelector('.character-carousel');
             
             let dragStartX = 0;
-            let dragCurrentX = 0;
+            let dragOffsetX = 0;
             let isDragging = false;
             
             
-            /* START */
+            /* ----------------------------------------
+               DRAG START
+            ---------------------------------------- */
             
             carouselArea.addEventListener('pointerdown', (event) => {
             
-                /* 矢印ボタンを押した場合はドラッグ処理をしない */
-                if (event.target.closest('.carousel-arrow')) {
-                    return;
-                }
+                isDragging = true;
             
                 dragStartX = event.clientX;
-                dragCurrentX = event.clientX;
+                dragOffsetX = 0;
             
-                isDragging = true;
+                carouselArea.setPointerCapture(event.pointerId);
             
                 carouselArea.style.cursor = 'grabbing';
             
@@ -1468,42 +1467,114 @@
                     character.style.transition = 'none';
                 });
             
-                carouselArea.setPointerCapture(event.pointerId);
-            
+                event.preventDefault();
             });
             
             
-            /* MOVE */
+            /* ----------------------------------------
+               DRAG MOVE
+            ---------------------------------------- */
             
             carouselArea.addEventListener('pointermove', (event) => {
             
-                if (!isDragging) return;
+                if (!isDragging) {
+                    return;
+                }
             
-                dragCurrentX = event.clientX;
+                dragOffsetX = event.clientX - dragStartX;
             
-                const dragDistance =
-                    dragCurrentX - dragStartX;
             
-                carouselArea.style.setProperty(
-                    '--drag-x',
-                    `${dragDistance}px`
-                );
+                /*
+                   キャラクター1人分の移動距離。
+            
+                   PCでは左右のキャラクター間隔が270px、
+                   スマホでは145pxなので画面幅に応じて変更。
+                */
+            
+                const step =
+                    window.innerWidth <= 800
+                        ? 145
+                        : 270;
+            
+            
+                /*
+                   左へドラッグ
+                */
+            
+                while (dragOffsetX <= -step) {
+            
+                    currentCharacter++;
+            
+                    if (currentCharacter >= carouselCharacters.length) {
+                        currentCharacter = 0;
+                    }
+            
+                    dragOffsetX += step;
+            
+                    updateCarousel();
+                }
+            
+            
+                /*
+                   右へドラッグ
+                */
+            
+                while (dragOffsetX >= step) {
+            
+                    currentCharacter--;
+            
+                    if (currentCharacter < 0) {
+                        currentCharacter = carouselCharacters.length - 1;
+                    }
+            
+                    dragOffsetX -= step;
+            
+                    updateCarousel();
+                }
+            
+            
+                /*
+                   現在のドラッグ量を
+                   各キャラクターへ反映
+                */
+            
+                carouselCharacters.forEach((character) => {
+            
+                    character.style.setProperty(
+                        '--drag-x',
+                        `${dragOffsetX}px`
+                    );
+            
+                });
             
             });
             
             
-            /* END */
+            /* ----------------------------------------
+               DRAG END
+            ---------------------------------------- */
             
-            carouselArea.addEventListener('pointerup', (event) => {
+            function finishDrag(event) {
             
-                if (!isDragging) return;
-            
-                const dragDistance =
-                    dragCurrentX - dragStartX;
+                if (!isDragging) {
+                    return;
+                }
             
                 isDragging = false;
             
+                try {
+                    carouselArea.releasePointerCapture(event.pointerId);
+                } catch (error) {
+                    /* pointer capture already released */
+                }
+            
                 carouselArea.style.cursor = 'grab';
+            
+            
+                /*
+                   ドラッグ終了後は
+                   通常のアニメーションへ戻す
+                */
             
                 carouselCharacters.forEach((character) => {
                     character.style.transition =
@@ -1512,64 +1583,43 @@
             
             
                 /*
-                   一定距離以上ドラッグした場合
-                   キャラクターを1人分進める
+                   残ったドラッグ量を0へ戻す
                 */
             
-                if (Math.abs(dragDistance) >= 50) {
+                dragOffsetX = 0;
             
-                    if (dragDistance < 0) {
+                carouselCharacters.forEach((character) => {
             
-                        currentCharacter++;
+                    character.style.setProperty(
+                        '--drag-x',
+                        '0px'
+                    );
             
-                        if (currentCharacter >= carouselCharacters.length) {
-                            currentCharacter = 0;
-                        }
+                });
             
-                    } else {
-            
-                        currentCharacter--;
-            
-                        if (currentCharacter < 0) {
-                            currentCharacter =
-                                carouselCharacters.length - 1;
-                        }
-            
-                    }
-            
-                }
-            
-            
-                /*
-                   ドラッグ位置をリセット
-                */
-            
-                carouselArea.style.setProperty(
-                    '--drag-x',
-                    '0px'
-                );
             
                 updateCarousel();
+            }
             
-            });
+            
+            /* ----------------------------------------
+               POINTER UP
+            ---------------------------------------- */
+            
+            carouselArea.addEventListener(
+                'pointerup',
+                finishDrag
+            );
             
             
-            /* CANCEL */
+            /* ----------------------------------------
+               POINTER CANCEL
+            ---------------------------------------- */
             
-            carouselArea.addEventListener('pointercancel', () => {
-            
-                isDragging = false;
-            
-                carouselArea.style.cursor = 'grab';
-            
-                carouselArea.style.setProperty(
-                    '--drag-x',
-                    '0px'
-                );
-            
-                updateCarousel();
-            
-            });
+            carouselArea.addEventListener(
+                'pointercancel',
+                finishDrag
+            );
 
         </script>
 
