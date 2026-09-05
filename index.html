@@ -1463,10 +1463,6 @@
             carouselArea.setPointerCapture(event.pointerId);
             carouselArea.style.cursor = 'grabbing';
         
-            carouselCharacters.forEach((character) => {
-                character.style.transition = 'none';
-            });
-        
             event.preventDefault();
         });
         
@@ -1476,18 +1472,52 @@
         
             if (!isDragging) return;
         
-            dragOffsetX = event.clientX - dragStartX;
+            const movement =
+                event.clientX - dragStartX;
+        
+            dragOffsetX += movement;
+            dragStartX = event.clientX;
+        
         
             /*
-               ドラッグ中はキャラクターそのものを
-               マウスの移動量に合わせて動かす
+               一定距離ドラッグするたびに
+               キャラクターを1人だけ切り替える。
             */
-            carouselCharacters.forEach((character) => {
-                character.style.setProperty(
-                    '--drag-x',
-                    `${dragOffsetX}px`
-                );
-            });
+        
+            const threshold =
+                window.innerWidth <= 800
+                    ? 100
+                    : 140;
+        
+        
+            /* 左へドラッグ */
+            if (dragOffsetX <= -threshold) {
+        
+                currentCharacter++;
+        
+                if (currentCharacter >= carouselCharacters.length) {
+                    currentCharacter = 0;
+                }
+        
+                dragOffsetX += threshold;
+        
+                updateCarousel();
+            }
+        
+        
+            /* 右へドラッグ */
+            else if (dragOffsetX >= threshold) {
+        
+                currentCharacter--;
+        
+                if (currentCharacter < 0) {
+                    currentCharacter = carouselCharacters.length - 1;
+                }
+        
+                dragOffsetX -= threshold;
+        
+                updateCarousel();
+            }
         });
         
         
@@ -1507,52 +1537,10 @@
             carouselArea.style.cursor = 'grab';
         
             /*
-               切り替え判定。
-               1回のドラッグでは最大1人だけ移動する。
+               残ったドラッグ量はリセット。
+               キャラクターは現在の位置で止まる。
             */
-            const threshold =
-                window.innerWidth <= 800
-                    ? 70
-                    : 120;
-        
-            if (dragOffsetX <= -threshold) {
-        
-                currentCharacter++;
-        
-                if (currentCharacter >= carouselCharacters.length) {
-                    currentCharacter = 0;
-                }
-        
-            } else if (dragOffsetX >= threshold) {
-        
-                currentCharacter--;
-        
-                if (currentCharacter < 0) {
-                    currentCharacter = carouselCharacters.length - 1;
-                }
-            }
-        
-        
-            /* アニメーションを戻す */
-            carouselCharacters.forEach((character) => {
-                character.style.transition =
-                    'transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.6s ease, filter 0.6s ease';
-            });
-        
-        
-            /* ドラッグ位置をリセット */
             dragOffsetX = 0;
-        
-            carouselCharacters.forEach((character) => {
-                character.style.setProperty(
-                    '--drag-x',
-                    '0px'
-                );
-            });
-        
-        
-            /* 最終位置へ滑らかに戻す */
-            updateCarousel();
         }
         
         
