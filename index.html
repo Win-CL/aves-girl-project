@@ -569,6 +569,254 @@
             }
         }
 
+    /* ========================================
+       CHARACTER CAROUSEL
+    ======================================== */
+    
+    .character-carousel-section {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 120px 30px 140px;
+    }
+    
+    .character-carousel-heading {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .character-carousel-heading .section-number {
+        margin-bottom: 12px;
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        opacity: 0.45;
+    }
+    
+    .character-carousel-heading h2 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+    }
+    
+    .character-carousel {
+        position: relative;
+        width: 100%;
+        height: 560px;
+        overflow: hidden;
+    }
+    
+    .character-carousel-track {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .carousel-character {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    
+        width: 250px;
+        height: 500px;
+    
+        transform:
+            translate(-50%, -50%)
+            scale(0.65);
+    
+        opacity: 0;
+        filter: brightness(0.45);
+    
+        transition:
+            transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+            opacity 0.6s ease,
+            filter 0.6s ease;
+    
+        cursor: pointer;
+        pointer-events: none;
+    }
+    
+    .carousel-character img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .carousel-character.is-center {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    
+        opacity: 1;
+        filter: brightness(1);
+    
+        z-index: 5;
+        pointer-events: auto;
+    }
+    
+    .carousel-character.is-left {
+        transform:
+            translate(calc(-50% - 270px), -50%)
+            scale(0.78);
+    
+        opacity: 0.72;
+        filter: brightness(0.7);
+    
+        z-index: 4;
+        pointer-events: auto;
+    }
+    
+    .carousel-character.is-right {
+        transform:
+            translate(calc(-50% + 270px), -50%)
+            scale(0.78);
+    
+        opacity: 0.72;
+        filter: brightness(0.7);
+    
+        z-index: 4;
+        pointer-events: auto;
+    }
+    
+    .carousel-character.is-far-left {
+        transform:
+            translate(calc(-50% - 460px), -50%)
+            scale(0.6);
+    
+        opacity: 0.35;
+        filter: brightness(0.5);
+    
+        z-index: 3;
+    }
+    
+    .carousel-character.is-far-right {
+        transform:
+            translate(calc(-50% + 460px), -50%)
+            scale(0.6);
+    
+        opacity: 0.35;
+        filter: brightness(0.5);
+    
+        z-index: 3;
+    }
+    
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+    
+        width: 50px;
+        height: 50px;
+    
+        transform: translateY(-50%);
+    
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(8,10,18,0.75);
+        color: #f4f5f8;
+    
+        font-size: 26px;
+        font-weight: 300;
+    
+        cursor: pointer;
+    
+        transition: 0.3s;
+    }
+    
+    .carousel-arrow:hover {
+        background: rgba(255,255,255,0.1);
+    }
+    
+    .carousel-arrow.prev {
+        left: 25px;
+    }
+    
+    .carousel-arrow.next {
+        right: 25px;
+    }
+    
+    .carousel-character-name {
+        margin: 30px 0 0;
+        text-align: center;
+    
+        font-size: 14px;
+        letter-spacing: 0.16em;
+        opacity: 0.7;
+    }
+    
+    .carousel-character-count {
+        margin: 10px 0 0;
+        text-align: center;
+    
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        opacity: 0.35;
+    }
+    
+    
+    /* MOBILE */
+    
+    @media (max-width: 800px) {
+    
+        .character-carousel-section {
+            padding: 90px 20px 100px;
+        }
+    
+        .character-carousel-heading {
+            margin-bottom: 30px;
+        }
+    
+        .character-carousel-heading h2 {
+            font-size: 22px;
+        }
+    
+        .character-carousel {
+            height: 430px;
+        }
+    
+        .carousel-character {
+            width: 170px;
+            height: 340px;
+        }
+    
+        .carousel-character.is-left {
+            transform:
+                translate(calc(-50% - 145px), -50%)
+                scale(0.72);
+        }
+    
+        .carousel-character.is-right {
+            transform:
+                translate(calc(-50% + 145px), -50%)
+                scale(0.72);
+        }
+    
+        .carousel-character.is-far-left {
+            transform:
+                translate(calc(-50% - 250px), -50%)
+                scale(0.55);
+        }
+    
+        .carousel-character.is-far-right {
+            transform:
+                translate(calc(-50% + 250px), -50%)
+                scale(0.55);
+        }
+    
+        .carousel-arrow {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+    
+        .carousel-arrow.prev {
+            left: 5px;
+        }
+    
+        .carousel-arrow.next {
+            right: 5px;
+        }
+    }
+            
     </style>
 </head>
 
@@ -659,544 +907,242 @@
                 </div>
 
 
-                <div class="character-list">
+                <div class="character-carousel-section">
 
-
-                    <!-- 01 -->
-
-                    <article class="character" onclick="location.href='humino.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/humino.jpg" alt="鳴無 文乃 ポスター">
-                            <img src="images/humino_2.png" alt="鳴無 文乃 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                01
+                            <div class="character-carousel-heading">
+                        
+                                <div class="section-number">
+                                    01 / CHARACTERS
+                                </div>
+                        
+                                <h2>
+                                    CHARACTERS
+                                </h2>
+                        
                             </div>
-
-                            <h3 class="character-name">
+                        
+                        
+                            <div class="character-carousel">
+                        
+                                <button class="carousel-arrow prev" type="button" aria-label="前のキャラクター">
+                                    ←
+                                </button>
+                        
+                        
+                                <div class="character-carousel-track">
+                        
+                        
+                                    <!-- 01 / 鳴無 文乃 -->
+                        
+                                    <div
+                                        class="carousel-character is-center"
+                                        data-index="0"
+                                        data-page="humino.html"
+                                        data-name="鳴無 文乃"
+                                        data-name-en="FUMINO OTONASHI"
+                                    >
+                                        <img
+                                            src="images/humino.jpg"
+                                            alt="鳴無 文乃"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 02 / ライミィ・アバンドール -->
+                        
+                                    <div
+                                        class="carousel-character is-right"
+                                        data-index="1"
+                                        data-page="raimy.html"
+                                        data-name="ライミィ・アバンドール"
+                                        data-name-en="RAIMY ABANDOR"
+                                    >
+                                        <img
+                                            src="images/raimy.jpg"
+                                            alt="ライミィ・アバンドール"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 03 / 串木野 依澄 -->
+                        
+                                    <div
+                                        class="carousel-character is-far-right"
+                                        data-index="2"
+                                        data-page="isumi.html"
+                                        data-name="串木野 依澄"
+                                        data-name-en="ISUMI KUSHIKINO"
+                                    >
+                                        <img
+                                            src="images/isumi.jpg"
+                                            alt="串木野 依澄"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 04 / 知代 雪 -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="3"
+                                        data-page="setsu.html"
+                                        data-name="知代 雪"
+                                        data-name-en="SETSU TOMOSHIRO"
+                                    >
+                                        <img
+                                            src="images/setsu.jpg"
+                                            alt="知代 雪"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 05 / ペドローナ・ジェスター -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="4"
+                                        data-page="pedrona.html"
+                                        data-name="ペドローナ・ジェスター"
+                                        data-name-en="PEDRONA JESTER"
+                                    >
+                                        <img
+                                            src="images/pedrona.jpg"
+                                            alt="ペドローナ・ジェスター"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 06 / 青 紹彬 -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="5"
+                                        data-page="shaobin.html"
+                                        data-name="青 紹彬"
+                                        data-name-en="QING SHAOBIN"
+                                    >
+                                        <img
+                                            src="images/shaobin.jpg"
+                                            alt="青 紹彬"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 07 / 嘉冠 珠月 -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="6"
+                                        data-page="mitsuki.html"
+                                        data-name="嘉冠 珠月"
+                                        data-name-en="MITSUKI KAGAFURI"
+                                    >
+                                        <img
+                                            src="images/mitsuki.jpg"
+                                            alt="嘉冠 珠月"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 08 / アロア・ファンガレイ -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="7"
+                                        data-page="aroa.html"
+                                        data-name="アロア・ファンガレイ"
+                                        data-name-en="AROA FANGALEY"
+                                    >
+                                        <img
+                                            src="images/aroa.jpg"
+                                            alt="アロア・ファンガレイ"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 09 / 竹清歌 つづら -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="8"
+                                        data-page="tsuzura.html"
+                                        data-name="竹清歌 つづら"
+                                        data-name-en="TSUZURA TAKEKIYOKA"
+                                    >
+                                        <img
+                                            src="images/tsuzura.jpg"
+                                            alt="竹清歌 つづら"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 10 / 笠原 トワ -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="9"
+                                        data-page="towa.html"
+                                        data-name="笠原 トワ"
+                                        data-name-en="TOWA KASAHARA"
+                                    >
+                                        <img
+                                            src="images/towa.jpg"
+                                            alt="笠原 トワ"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 11 / イヴ・シャルベール・ダーウィン -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="10"
+                                        data-page="eve.html"
+                                        data-name="イヴ・シャルベール・ダーウィン"
+                                        data-name-en="EVE CHARBERT DARWIN"
+                                    >
+                                        <img
+                                            src="images/eve.jpg"
+                                            alt="イヴ・シャルベール・ダーウィン"
+                                        >
+                                    </div>
+                        
+                        
+                                    <!-- 12 / インレイ・グリントローヴ -->
+                        
+                                    <div
+                                        class="carousel-character"
+                                        data-index="11"
+                                        data-page="inlay.html"
+                                        data-name="インレイ・グリントローヴ"
+                                        data-name-en="INLAY GLINTROVE"
+                                    >
+                                        <img
+                                            src="images/inlay.jpg"
+                                            alt="インレイ・グリントローヴ"
+                                        >
+                                    </div>
+                        
+                        
+                                </div>
+                        
+                        
+                                <button class="carousel-arrow next" type="button" aria-label="次のキャラクター">
+                                    →
+                                </button>
+                        
+                            </div>
+                        
+                        
+                            <p class="carousel-character-name">
                                 鳴無 文乃
-                            </h3>
-
-                            <div class="character-name-en">
-                                FUMINO OTONASHI
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "醜貌のアサッシン"
-                                役職 / 斥候
-                            </div>
-
-                            <p class="character-description">
-                                口数が少なく、冷静で物静かな少女。
-                                山でキャンプをするのがお気に入り。
-                                気配を消すのが得意。
                             </p>
-
-                            <div class="character-meta">
-                                MOTIF — オーストラリアガマグチヨタカ：Podargus strigoides
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 02 -->
-
-                    <article class="character" onclick="location.href='raimy.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/raimy.jpg" alt="ライミィ・アバンドール ポスター">
-                            <img src="images/raimy_2.png" alt="ライミィ・アバンドール 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                02
-                            </div>
-
-                            <h3 class="character-name">
-                                ライミィ・アバンドール
-                            </h3>
-
-                            <div class="character-name-en">
-                                RAIMY ABANDOR
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "極彩色のミックスアッパー"
-                                役職 / DJ
-                            </div>
-
-                            <p class="character-description">
-                                明るく自由奔放な天才肌の音楽アーティスト。
-                                音楽と街の喧騒を愛し、あらゆる音を再現する。
+                        
+                            <p class="carousel-character-count">
+                                01 / 12
                             </p>
-
-                            <div class="character-meta">
-                                MOTIF — コトドリ：Menura novaehollandiae 
-                            </div>
-
+                        
                         </div>
-
-                    </article>
-
-
-                    <!-- 03 -->
-
-                    <article class="character" onclick="location.href='isumi.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/isumi.jpg" alt="串木野 依澄 ポスター">
-                            <img src="images/isumi_2.png" alt="串木野 依澄 設定イラスト">
-                            
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                03
-                            </div>
-
-                            <h3 class="character-name">
-                                串木野 依澄
-                            </h3>
-
-                            <div class="character-name-en">
-                                ISUMI KUSHIKINO
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "狷介孤高のインペイル"
-                                役職 / 軍人
-                            </div>
-
-                            <p class="character-description">
-                                規律と誇りを重んじる軍人。
-                                二振りの刀を携え、常に凛とした態度を崩さない。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — モズ：Lanius bucephalus 
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 04 -->
-
-                    <article class="character" onclick="location.href='setsu.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/setsu.jpg" alt="知代 雪 ポスター">
-                            <img src="images/setsu_2.png" alt="知代 雪 設定イラスト"> 
-                            
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                04
-                            </div>
-
-                            <h3 class="character-name">
-                                知代 雪
-                            </h3>
-
-                            <div class="character-name-en">
-                                SETSU TOMOSHIRO
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "神宿りのハウスメーカー"
-                                役職 / 巫女
-                            </div>
-
-                            <p class="character-description">
-                                神社に仕える少女。
-                                穏やかで親しみやすく、どこか神秘的な雰囲気を
-                                まとっている。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — シマエナガ：Aegithalos caudatus japonicus
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 05 -->
-
-                    <article class="character" onclick="location.href='pedrona.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/pedrona.jpg" alt="ペドローナ・ジェスター ポスター">
-                            <img src="images/pedrona_2.png" alt="ペドローナ・ジェスター 設定イラスト"> 
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                05
-                            </div>
-
-                            <h3 class="character-name">
-                                ペドローナ・ジェスター
-                            </h3>
-
-                            <div class="character-name-en">
-                                PEDRONA JESTER
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "万衆瞠目のプリマドンナ"
-                                役職 / 道化師
-                            </div>
-
-                            <p class="character-description">
-                                仮面の裏側は決して見せることのない道化師。
-                                嘘によって全てを塗り替える力を持つ少女。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — パフィン：Fratercula arctica
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 06 -->
-
-                    <article class="character" onclick="location.href='shaobin.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/shaobin.jpg" alt="青 紹彬 ポスター">
-                            <img src="images/shaobin_2.png" alt="青 紹彬 設定イラスト"> 
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                06
-                            </div>
-
-                            <h3 class="character-name">
-                                青 紹彬
-                            </h3>
-
-                            <div class="character-name-en">
-                                QING SHAOBIN
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "羽化登仙のエアウォーカー"
-                                役職 / 軽業師
-                            </div>
-
-                            <p class="character-description">
-                                卓越した身体能力を持つ軽業師。
-                                空中を舞うような身軽さと、華麗な身のこなしが特徴。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — カワセミ：Alcedo atthis
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 07 -->
-
-                    <article class="character" onclick="location.href='mitsuki.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/mitsuki.jpg" alt="嘉冠 珠月 ポスター">
-                            <img src="images/mitsuki_2.png" alt="青 紹彬 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                07
-                            </div>
-
-                            <h3 class="character-name">
-                                嘉冠 珠月
-                            </h3>
-
-                            <div class="character-name-en">
-                                KAGAFURI MITSUKI
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "浩瀚無辺のアーカイバー"
-                                役職 / 歴史教師
-                            </div>
-
-                            <p class="character-description">
-                                高等学校で歴史を教える知的な女性。
-                                古い時代の物語と文化を愛し、豊富な知識を持つ。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — ヤツガシラ：Upupa epops
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 08 -->
-
-                    <article class="character" onclick="location.href='aroa.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/aroa.jpg" alt="アロア・ファンガレイ ポスター">
-                            <img src="images/aroa_2.png" alt="アロア・ファンガレイ 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                08
-                            </div>
-
-                            <h3 class="character-name">
-                                アロア・ファンガレイ
-                            </h3>
-
-                            <div class="character-name-en">
-                                AROA FANGALEY
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "明察秋毫のウェイファインダー"
-                                役職 / 探検家
-                            </div>
-
-                            <p class="character-description">
-                                未知の場所を求めて旅を続ける探検家。
-                                好奇心旺盛で、痕跡や匂いから対象を追跡する能力を持つ。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — キーウィ：Apteryx australis
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 09 -->
-
-                    <article class="character" onclick="location.href='tsuzura.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/tsuzura.jpg" alt="竹清歌 つづら ポスター">
-                            <img src="images/tsuzura_2.png" alt="竹清歌 つづら 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                09
-                            </div>
-
-                            <h3 class="character-name">
-                                竹清歌 つづら
-                            </h3>
-
-                            <div class="character-name-en">
-                                TAKEKIYOKA TSUZURA
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "偏在安寧のネイバースパロウ"
-                                役職 / 中華料理屋の娘
-                            </div>
-
-                            <p class="character-description">
-                                中華料理屋を営む少女。
-                                親しみやすく温かな雰囲気を持ち、
-                                美味しい料理で人々をもてなす。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — スズメ：Passer montanus 
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 10 -->
-
-                    <article class="character" onclick="location.href='towa.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/towa.jpg" alt="笠原 トワ ポスター">
-                            <img src="images/towa_2.png" alt="笠原 トワ 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                10
-                            </div>
-
-                            <h3 class="character-name">
-                                笠原 トワ
-                            </h3>
-
-                            <div class="character-name-en">
-                                KASAHARA TOWA
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "放蕩無頼のピンチヒッター"
-                                役職 / ヒーロー
-                            </div>
-
-                            <p class="character-description">
-                                好きなものはお酒とパチンコ、普段は無職の昼行灯。
-                                しかしながら、大事の際にはヒーローとして颯爽と現れる。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — アホウドリ：Phoebastria albatrus
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 11 -->
-
-                    <article class="character" onclick="location.href='eve.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/eve.jpg" alt="イヴ・シャルベール・ダーウィン ポスター">
-                            <img src="images/eve_2.png" alt="イヴ・シャルベール・ダーウィン 設定イラスト">
-
-                        </div>
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                11
-                            </div>
-
-                            <h3 class="character-name">
-                                イヴ・シャルベール・ダーウィン
-                            </h3>
-
-                            <div class="character-name-en">
-                                EVE CHARBERT DARWIN
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "変異偏執のレネゲイド"
-                                役職 / 生物学者
-                            </div>
-
-                            <p class="character-description">
-                                生物学を研究する天才肌のマッドサイエンティスト。
-                                陰気で卑屈な性格だが、珍しいものや未知の現象には
-                                強烈な好奇心を示す。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — ハシボソガラパゴスフィンチ：Geospiza difficilis
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 12 -->
-
-                    <article class="character" onclick="location.href='inlay.html'" style="cursor:pointer;">
-
-                        <div class="character-image">
-
-                            <img src="images/inlay.jpg" alt="インレイ・グリントローヴ ポスター">
-                            <img src="images/inlay_2.png" alt="インレイ・グリントローヴ 設定イラスト">
-
-                        </div>
-
-
-                        <div class="character-info">
-
-                            <div class="character-number">
-                                12
-                            </div>
-
-                            <h3 class="character-name">
-                                インレイ・グリントローヴ
-                            </h3>
-
-                            <div class="character-name-en">
-                                INLAY GLINTROVE
-                            </div>
-
-                            <div class="character-role">
-                                二つ名 / "蒐藍のアンティクァリアン"
-                                役職 / 古物蒐集家
-                            </div>
-
-                            <p class="character-description">
-                                美しいものや珍しいものに強い執着を見せる少女。
-                                螺鈿細工を思わせる独特の美意識を持つ。
-                            </p>
-
-                            <div class="character-meta">
-                                MOTIF — アオアズマヤドリ：Ptilonorhynchus violaceus
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
             </div>
 
         </section>
@@ -1357,6 +1303,103 @@
     menuToggle.addEventListener('click', () => {
         nav.classList.toggle('open');
     });
+
+
+        /* ========================================
+           CHARACTER CAROUSEL
+        ======================================== */
+        
+        const carouselCharacters = document.querySelectorAll('.carousel-character');
+        const carouselPrev = document.querySelector('.carousel-arrow.prev');
+        const carouselNext = document.querySelector('.carousel-arrow.next');
+        const carouselName = document.querySelector('.carousel-character-name');
+        const carouselCount = document.querySelector('.carousel-character-count');
+        
+        let currentCharacter = 0;
+        
+        function updateCarousel() {
+        
+            const total = carouselCharacters.length;
+        
+            carouselCharacters.forEach((character, index) => {
+        
+                character.classList.remove(
+                    'is-center',
+                    'is-left',
+                    'is-right',
+                    'is-far-left',
+                    'is-far-right'
+                );
+        
+                let difference = index - currentCharacter;
+        
+                if (difference > total / 2) {
+                    difference -= total;
+                }
+        
+                if (difference < -total / 2) {
+                    difference += total;
+                }
+        
+                if (difference === 0) {
+                    character.classList.add('is-center');
+                }
+                else if (difference === -1) {
+                    character.classList.add('is-left');
+                }
+                else if (difference === 1) {
+                    character.classList.add('is-right');
+                }
+                else if (difference === -2) {
+                    character.classList.add('is-far-left');
+                }
+                else if (difference === 2) {
+                    character.classList.add('is-far-right');
+                }
+            });
+        
+            const selected = carouselCharacters[currentCharacter];
+        
+            carouselName.textContent = selected.dataset.name;
+        
+            carouselCount.textContent =
+                String(currentCharacter + 1).padStart(2, '0') +
+                ' / ' +
+                String(total).padStart(2, '0');
+        }
+        
+        
+        /* PREVIOUS */
+        
+        carouselPrev.addEventListener('click', () => {
+        
+            currentCharacter--;
+        
+            if (currentCharacter < 0) {
+                currentCharacter = carouselCharacters.length - 1;
+            }
+        
+            updateCarousel();
+        });
+        
+        
+        /* NEXT */
+        
+        carouselNext.addEventListener('click', () => {
+        
+            currentCharacter++;
+        
+            if (currentCharacter >= carouselCharacters.length) {
+                currentCharacter = 0;
+            }
+        
+            updateCarousel();
+        });
+        
+        
+        /* INITIALIZE */
+        
+        updateCarousel();
     </script>
 
     
