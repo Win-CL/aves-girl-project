@@ -656,7 +656,7 @@
     
     .carousel-character.is-left {
         transform:
-            translate(calc(-50% - 270px), -50%)
+            translate(calc(-50% - 180px), -50%)
             scale(0.78);
     
         opacity: 0.72;
@@ -668,7 +668,7 @@
     
     .carousel-character.is-right {
         transform:
-            translate(calc(-50% + 270px), -50%)
+            translate(calc(-50% + 180px), -50%)
             scale(0.78);
     
         opacity: 0.72;
@@ -680,24 +680,46 @@
     
     .carousel-character.is-far-left {
         transform:
-            translate(calc(-50% - 460px), -50%)
-            scale(0.6);
+            translate(calc(-50% - 310px), -50%)
+            scale(0.62);
     
-        opacity: 0.35;
-        filter: brightness(0.5);
+        opacity: 0.45;
+        filter: brightness(0.55);
     
         z-index: 3;
     }
     
     .carousel-character.is-far-right {
         transform:
-            translate(calc(-50% + 460px), -50%)
-            scale(0.6);
+            translate(calc(-50% + 310px), -50%)
+            scale(0.62);
     
-        opacity: 0.35;
-        filter: brightness(0.5);
+        opacity: 0.45;
+        filter: brightness(0.55);
     
         z-index: 3;
+    }
+    
+    .carousel-character.is-far-far-left {
+        transform:
+            translate(calc(-50% - 420px), -50%)
+            scale(0.50);
+    
+        opacity: 0.22;
+        filter: brightness(0.45);
+    
+        z-index: 2;
+    }
+    
+    .carousel-character.is-far-far-right {
+        transform:
+            translate(calc(-50% + 420px), -50%)
+            scale(0.50);
+    
+        opacity: 0.22;
+        filter: brightness(0.45);
+    
+        z-index: 2;
     }
     
     .carousel-arrow {
@@ -1328,7 +1350,9 @@
                     'is-left',
                     'is-right',
                     'is-far-left',
-                    'is-far-right'
+                    'is-far-right',
+                    'is-far-far-left',
+                    'is-far-far-right'
                 );
         
                 let difference = index - currentCharacter;
@@ -1355,6 +1379,12 @@
                 }
                 else if (difference === 2) {
                     character.classList.add('is-far-right');
+                }
+                else if (difference === -3) {
+                    character.classList.add('is-far-far-left');
+                }
+                else if (difference === 3) {
+                    character.classList.add('is-far-far-right');
                 }
             });
         
