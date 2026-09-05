@@ -1434,6 +1434,16 @@
             String(currentCharacter + 1).padStart(2, '0') +
             ' / ' +
             String(total).padStart(2, '0');
+
+            /* 選択キャラクターに合わせて背景を切り替える */
+            const backgroundImage =
+                document.querySelector('.carousel-background img');
+        
+            backgroundImage.src =
+                'images/BG_' +
+                String(currentCharacter + 1).padStart(2, '0') +
+                '.png';
+                
             }
         
         /* PREVIOUS */
