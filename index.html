@@ -706,7 +706,7 @@
     
     .carousel-character.is-far-far-left {
         transform:
-            translate(calc(-50% - 420px + var(--drag-x, 0px)), -50%)
+            translate(calc(-50% - 620px + var(--drag-x, 0px)), -50%)
             scale(0.50);
     
         opacity: 0.22;
@@ -717,7 +717,7 @@
     
     .carousel-character.is-far-far-right {
         transform:
-            translate(calc(-50% + 420px + var(--drag-x, 0px)), -50%)
+            translate(calc(-50% + 620px + var(--drag-x, 0px)), -50%)
             scale(0.50);
     
         opacity: 0.22;
@@ -1343,64 +1343,62 @@
         
         let currentCharacter = 0;
         
-        function updateCarousel() {
-        
-            const total = carouselCharacters.length;
-        
-            carouselCharacters.forEach((character, index) => {
-        
-                character.classList.remove(
-                    'is-center',
-                    'is-left',
-                    'is-right',
-                    'is-far-left',
-                    'is-far-right',
-                    'is-far-far-left',
-                    'is-far-far-right'
-                );
-        
-                let difference = index - currentCharacter;
-        
-                if (difference > total / 2) {
-                    difference -= total;
-                }
-        
-                if (difference < -total / 2) {
-                    difference += total;
-                }
-        
-                if (difference === 0) {
-                    character.classList.add('is-center');
-                }
-                else if (difference === -1) {
-                    character.classList.add('is-left');
-                }
-                else if (difference === 1) {
-                    character.classList.add('is-right');
-                }
-                else if (difference === -2) {
-                    character.classList.add('is-far-left');
-                }
-                else if (difference === 2) {
-                    character.classList.add('is-far-right');
-                }
-                else if (difference === -3) {
-                    character.classList.add('is-far-far-left');
-                }
-                else if (difference === 3) {
-                    character.classList.add('is-far-far-right');
-                }
-            });
-        
-            const selected = carouselCharacters[currentCharacter];
-        
-            carouselName.textContent = selected.dataset.name;
-        
-            carouselCount.textContent =
-                String(currentCharacter + 1).padStart(2, '0') +
-                ' / ' +
-                String(total).padStart(2, '0');
-        }
+    function updateCarousel() {
+        const total = carouselCharacters.length;
+    
+        carouselCharacters.forEach((character, index) => {
+    
+            character.classList.remove(
+                'is-center',
+                'is-left',
+                'is-right',
+                'is-far-left',
+                'is-far-right',
+                'is-far-far-left',
+                'is-far-far-right'
+            );
+    
+            let difference = index - currentCharacter;
+    
+            if (difference > total / 2) {
+                difference -= total;
+            }
+    
+            if (difference < -total / 2) {
+                difference += total;
+            }
+    
+            if (difference === 0) {
+                character.classList.add('is-center');
+    
+            } else if (difference === -1) {
+                character.classList.add('is-left');
+    
+            } else if (difference === 1) {
+                character.classList.add('is-right');
+    
+            } else if (difference === -2) {
+                character.classList.add('is-far-left');
+    
+            } else if (difference === 2) {
+                character.classList.add('is-far-right');
+    
+            } else if (difference === -3) {
+                character.classList.add('is-far-far-left');
+    
+            } else if (difference === 3) {
+                character.classList.add('is-far-far-right');
+            }
+        });
+    
+        const selected = carouselCharacters[currentCharacter];
+    
+        carouselName.textContent = selected.dataset.name;
+    
+        carouselCount.textContent =
+            String(currentCharacter + 1).padStart(2, '0') +
+            ' / ' +
+            String(total).padStart(2, '0');
         
         
         /* PREVIOUS */
