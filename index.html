@@ -1729,14 +1729,15 @@
 
             /* CLICK */
 
-            if (
-                dragTargetCharacter &&
-                wasClick
-            ) {
+             if (
+                    dragTargetCharacter &&
+                    dragTargetCharacter.classList.contains('is-center') &&
+                    wasClick
+                ) {
                 const page =
                     dragTargetCharacter.dataset.page;
 
-                if (page) {
+             if (page) {
                     characterDetailFrame.src = page;
 
                     characterDetailModal.classList.add('is-open');
