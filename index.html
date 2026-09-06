@@ -555,23 +555,48 @@
         padding: 120px 30px 20px;
     }
     
-    .character-carousel-heading {
-        margin-bottom: 50px;
-        text-align: center;
-    }
+    /* PC用：CHARACTERS見出しを他セクションと統一 */
     
-    .character-carousel-heading .section-number {
-        margin-bottom: 12px;
-        font-size: 10px;
-        letter-spacing: 0.28em;
-        opacity: 0.45;
-    }
+    @media (min-width: 801px) {
     
-    .character-carousel-heading h2 {
-        margin: 0;
-        font-size: 28px;
-        font-weight: 500;
-        letter-spacing: 0.2em;
+        .character-carousel-heading {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+    
+        .character-carousel-heading .section-number {
+            margin-bottom: 28px;
+            font-family: Georgia, serif;
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            opacity: 0.45;
+        }
+    
+        .character-carousel-heading h2 {
+            position: relative;
+    
+            margin: 0;
+            padding-bottom: 42px;
+    
+            font-family: Georgia, serif;
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+    
+        .character-carousel-heading h2::after {
+            content: "";
+    
+            position: absolute;
+            left: 0;
+            bottom: 0;
+    
+            width: 70px;
+            height: 1px;
+    
+            background: rgba(255,255,255,0.55);
+        }
+    
     }
 
     /* PC用カルーセル */
