@@ -1824,6 +1824,21 @@
             `;
         
             frameDocument.head.appendChild(style);
+
+            const backLink =
+            frameDocument.querySelector('.back-link');
+        
+            if (backLink) {
+                backLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+            
+                    characterDetailModal.classList.remove('is-open');
+                    characterDetailModal.setAttribute(
+                        'aria-hidden',
+                        'true'
+                    );
+                });
+            }
         });
         
 
