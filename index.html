@@ -1825,24 +1825,26 @@
         
             frameDocument.head.appendChild(style);
 
-            const backLink =
-            frameDocument.querySelector('.back-link');
-        
-            if (backLink) {
-                backLink.addEventListener('click', (event) => {
-                    event.preventDefault();
+            frameDocument.addEventListener('click', (event) => {
             
-                    characterDetailModal.classList.remove('is-open');
-                    characterDetailModal.setAttribute(
-                        'aria-hidden',
-                        'true'
-                    );
-                });
-            }
+                const backLink =
+                    event.target.closest('.back-link');
+            
+                if (!backLink) return;
+            
+                event.preventDefault();
+                event.stopPropagation();
+            
+                characterDetailModal.classList.remove('is-open');
+                characterDetailModal.setAttribute(
+                    'aria-hidden',
+                    'true'
+                );
+            
+            }, true);
         });
         
 
-        
         
         /* CLICK OUTSIDE WINDOW */
         
