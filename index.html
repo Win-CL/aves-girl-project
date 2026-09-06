@@ -1626,6 +1626,7 @@
         let dragStartX = 0;
         let dragOffsetX = 0;
         let isDragging = false;
+        let dragTargetCharacter = null;
         
         
         /* DRAG START */
@@ -1639,6 +1640,9 @@
             isDragging = true;
             dragStartX = event.clientX;
             dragOffsetX = 0;
+
+            dragTargetCharacter =
+                event.target.closest('.carousel-character');
         
             carouselArea.setPointerCapture(event.pointerId);
             carouselArea.style.cursor = 'grabbing';
@@ -1719,17 +1723,43 @@
                残ったドラッグ量はリセット。
                キャラクターは現在の位置で止まる。
             */
+
+            const wasClick =
+                Math.abs(dragOffsetX) < 10;
+
+            /* CLICK */
+
+            if (
+                dragTargetCharacter &&
+                wasClick
+            ) {
+                const page =
+                    dragTargetCharacter.dataset.page;
+
+                if (page) {
+                    characterDetailFrame.src = page;
+
+                    characterDetailModal.classList.add('is-open');
+
+                    characterDetailModal.setAttribute(
+                        'aria-hidden',
+                        'false'
+                    );
+                }
+            }
+
+            dragTargetCharacter = null;
             dragOffsetX = 0;
         }
-        
-        
+
+
         /* POINTER UP */
         carouselArea.addEventListener(
             'pointerup',
             finishDrag
         );
-        
-        
+
+
         /* POINTER CANCEL */
         carouselArea.addEventListener(
             'pointercancel',
@@ -1750,28 +1780,7 @@
             document.getElementById('characterDetailClose');
         
         
-        /* CHARACTER CLICK */
-        
-        carouselCharacters.forEach((character) => {
-        
-            character.addEventListener('click', () => {
-        
-                const page =
-                    character.dataset.page;
-        
-                if (!page) return;
-        
-                characterDetailFrame.src = page;
-        
-                characterDetailModal.classList.add('is-open');
-        
-                characterDetailModal.setAttribute(
-                    'aria-hidden',
-                    'false'
-                );
-            });
-        
-        });
+
         
         
         /* CLOSE BUTTON */
@@ -1831,6 +1840,6 @@
         
         </script>
 
-    
+
 </body>
 </html>
