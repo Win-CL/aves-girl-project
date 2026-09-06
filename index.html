@@ -1838,28 +1838,30 @@
         
         
             const backLink =
-                frameDocument.querySelector('.back-link');
-        
+                frameDocument.querySelector(
+                    'a[href*="#characters"]'
+                );
+            
             if (backLink) {
-        
+            
                 backLink.addEventListener('click', (event) => {
-        
+            
                     event.preventDefault();
                     event.stopPropagation();
-        
+            
                     closeCharacterDetail();
-        
+            
                 });
-        
+            
                 backLink.addEventListener('touchend', (event) => {
-        
+            
                     event.preventDefault();
                     event.stopPropagation();
-        
+            
                     closeCharacterDetail();
-        
+            
                 }, { passive: false });
-        
+            
             }
         
         });
