@@ -1476,14 +1476,7 @@
     <!-- キャラクター詳細ウィンドウ -->
     <div class="character-detail-modal" id="characterDetailModal" aria-hidden="true">
         <div class="character-detail-window">
-            <button
-                class="character-detail-close"
-                id="characterDetailClose"
-                type="button"
-                aria-label="詳細を閉じる"
-            >
-                ×
-            </button>
+
     
             <iframe
                 id="characterDetailFrame"
@@ -1781,22 +1774,29 @@
             document.getElementById('characterDetailClose');
         
         
-
+        /* 詳細ページをウィンドウ内で表示する際、
+           ページ側のヘッダーメニューを隠す */
         
+        characterDetailFrame.addEventListener('load', () => {
         
-        /* CLOSE BUTTON */
+            const frameDocument =
+                characterDetailFrame.contentDocument;
         
-        characterDetailClose.addEventListener('click', () => {
+            if (!frameDocument) return;
         
-            characterDetailModal.classList.remove('is-open');
+            const style =
+                frameDocument.createElement('style');
         
-            characterDetailModal.setAttribute(
-                'aria-hidden',
-                'true'
-            );
+            style.textContent = `
+                header {
+                    display: none !important;
+                }
+            `;
         
-            characterDetailFrame.src = '';
+            frameDocument.head.appendChild(style);
         });
+        
+
         
         
         /* CLICK OUTSIDE WINDOW */
