@@ -644,12 +644,17 @@
         pointer-events: none;
     }
     
-    .carousel-character img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+        .carousel-character img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        
+            border: 1px solid rgba(255,255,255,0.28);
+            box-shadow:
+                0 0 10px rgba(255,255,255,0.14),
+                0 0 24px rgba(255,255,255,0.08);
+        }
     
     .carousel-character.is-center {
         transform:
