@@ -1714,7 +1714,100 @@
             'pointercancel',
             finishDrag
         );
-
+        
+        /* ========================================
+           CHARACTER DETAIL WINDOW
+        ======================================== */
+        
+        const characterDetailModal =
+            document.getElementById('characterDetailModal');
+        
+        const characterDetailFrame =
+            document.getElementById('characterDetailFrame');
+        
+        const characterDetailClose =
+            document.getElementById('characterDetailClose');
+        
+        
+        /* CHARACTER CLICK */
+        
+        carouselCharacters.forEach((character) => {
+        
+            character.addEventListener('click', () => {
+        
+                const page =
+                    character.dataset.page;
+        
+                if (!page) return;
+        
+                characterDetailFrame.src = page;
+        
+                characterDetailModal.classList.add('is-open');
+        
+                characterDetailModal.setAttribute(
+                    'aria-hidden',
+                    'false'
+                );
+            });
+        
+        });
+        
+        
+        /* CLOSE BUTTON */
+        
+        characterDetailClose.addEventListener('click', () => {
+        
+            characterDetailModal.classList.remove('is-open');
+        
+            characterDetailModal.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+        
+            characterDetailFrame.src = '';
+        });
+        
+        
+        /* CLICK OUTSIDE WINDOW */
+        
+        characterDetailModal.addEventListener('click', (event) => {
+        
+            if (event.target === characterDetailModal) {
+        
+                characterDetailModal.classList.remove('is-open');
+        
+                characterDetailModal.setAttribute(
+                    'aria-hidden',
+                    'true'
+                );
+        
+                characterDetailFrame.src = '';
+            }
+        
+        });
+        
+        
+        /* ESC KEY */
+        
+        document.addEventListener('keydown', (event) => {
+        
+            if (
+                event.key === 'Escape' &&
+                characterDetailModal.classList.contains('is-open')
+            ) {
+        
+                characterDetailModal.classList.remove('is-open');
+        
+                characterDetailModal.setAttribute(
+                    'aria-hidden',
+                    'true'
+                );
+        
+                characterDetailFrame.src = '';
+            }
+        
+        });        
+        
         </script>
 
         <!-- キャラクター詳細ウィンドウ -->
