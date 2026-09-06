@@ -1802,7 +1802,18 @@
         
         const characterDetailFrame =
             document.getElementById('characterDetailFrame');
+
+        function closeCharacterDetail() {
+
+            characterDetailModal.classList.remove('is-open');
         
+            characterDetailModal.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+        
+            characterDetailFrame.src = '';
+        }
         
         /* 詳細ページをウィンドウ内で表示する際、
            ページ側のヘッダーメニューを隠す */
@@ -1824,24 +1835,33 @@
             `;
         
             frameDocument.head.appendChild(style);
-
-            frameDocument.addEventListener('click', (event) => {
-            
-                const backLink =
-                    event.target.closest('.back-link');
-            
-                if (!backLink) return;
-            
-                event.preventDefault();
-                event.stopPropagation();
-            
-                characterDetailModal.classList.remove('is-open');
-                characterDetailModal.setAttribute(
-                    'aria-hidden',
-                    'true'
-                );
-            
-            }, true);
+        
+        
+            const backLink =
+                frameDocument.querySelector('.back-link');
+        
+            if (backLink) {
+        
+                backLink.addEventListener('click', (event) => {
+        
+                    event.preventDefault();
+                    event.stopPropagation();
+        
+                    closeCharacterDetail();
+        
+                });
+        
+                backLink.addEventListener('touchend', (event) => {
+        
+                    event.preventDefault();
+                    event.stopPropagation();
+        
+                    closeCharacterDetail();
+        
+                }, { passive: false });
+        
+            }
+        
         });
         
 
@@ -1852,18 +1872,11 @@
         
             if (event.target === characterDetailModal) {
         
-                characterDetailModal.classList.remove('is-open');
+                closeCharacterDetail();
         
-                characterDetailModal.setAttribute(
-                    'aria-hidden',
-                    'true'
-                );
-        
-                characterDetailFrame.src = '';
             }
         
         });
-        
         
         /* ESC KEY */
         
@@ -1874,14 +1887,7 @@
                 characterDetailModal.classList.contains('is-open')
             ) {
         
-                characterDetailModal.classList.remove('is-open');
-        
-                characterDetailModal.setAttribute(
-                    'aria-hidden',
-                    'true'
-                );
-        
-                characterDetailFrame.src = '';
+                closeCharacterDetail();
             }
         
         });        
