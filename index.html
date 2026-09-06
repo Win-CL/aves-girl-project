@@ -1770,9 +1770,6 @@
         const characterDetailFrame =
             document.getElementById('characterDetailFrame');
         
-        const characterDetailClose =
-            document.getElementById('characterDetailClose');
-        
         
         /* 詳細ページをウィンドウ内で表示する際、
            ページ側のヘッダーメニューを隠す */
@@ -1788,7 +1785,8 @@
                 frameDocument.createElement('style');
         
             style.textContent = `
-                header {
+                header,
+                .back-link {
                     display: none !important;
                 }
             `;
