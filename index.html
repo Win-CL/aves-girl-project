@@ -388,35 +388,71 @@
             background: #0b0e18;
         }
 
-        .gallery-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
+        .gallery-latest {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .gallery-item {
-            aspect-ratio: 1 / 1;
+        .gallery-latest-link {
+            display: block;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
 
-            background: #151927;
+        .gallery-latest-image {
+            width: 100%;
 
             border: 1px solid rgba(255,255,255,0.08);
 
-            color: rgba(255,255,255,0.35);
+            overflow: hidden;
+
+            background: #151927;
+        }
+
+        .gallery-latest-image img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.5s ease;
+        }
+
+        .gallery-latest-link:hover
+        .gallery-latest-image img {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .gallery-latest-more {
+            margin-top: 18px;
+
+            text-align: right;
 
             font-family: Georgia, serif;
 
             font-size: 13px;
+            letter-spacing: 0.14em;
 
-            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.65);
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
+        .gallery-latest-link:hover
+        .gallery-latest-more {
+            color: rgba(255,255,255,1);
+
+            transform: translateX(-4px);
+        }
+
+        
         /* ========================================
            COPYRIGHT
         ======================================== */
@@ -562,10 +598,6 @@
 
             .character-info {
                 padding: 45px 30px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1401,19 +1433,24 @@
 
                 </div>
 
-                <div class="gallery-grid">
-
-                    <div class="gallery-item">GALLERY 01</div>
-                    <div class="gallery-item">GALLERY 02</div>
-                    <div class="gallery-item">GALLERY 03</div>
-                    <div class="gallery-item">GALLERY 04</div>
-                    <div class="gallery-item">GALLERY 05</div>
-                    <div class="gallery-item">GALLERY 06</div>
-                    <div class="gallery-item">GALLERY 07</div>
-                    <div class="gallery-item">GALLERY 08</div>
-                    <div class="gallery-item">GALLERY 09</div>
-
-                </div>
+                    <div class="gallery-latest">
+    
+                        <a href="gallery.html" class="gallery-latest-link">
+    
+                            <div class="gallery-latest-image">
+                                <img
+                                    src="images/galler_16.png"
+                                    alt="AVES GIRL PROJECT Latest Gallery"
+                                >
+                            </div>
+    
+                            <div class="gallery-latest-more">
+                                GALLERY ＞＞
+                            </div>
+    
+                        </a>
+    
+                    </div>
 
             </div>
 
