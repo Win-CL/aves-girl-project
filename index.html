@@ -932,8 +932,16 @@
         }
 
         .carousel-character img {
-            border: none;
-            box-shadow: none;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+
+            border: 1px solid rgba(255,255,255,0.42);
+            box-shadow:
+                0 0 10px rgba(255,255,255,0.20),
+                0 0 24px rgba(255,255,255,0.10);
         }
         
         .carousel-character.is-left {
