@@ -380,6 +380,90 @@
             margin-bottom: 35px;
         }
 
+            .world-preview {
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px auto 0;
+        }
+
+        .world-preview-link {
+            display: block;
+
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .world-preview-image {
+            width: 82%;
+            margin: 0 auto;
+
+            position: relative;
+
+            overflow: visible;
+        }
+
+        .world-preview-image::before {
+            content: "";
+
+            position: absolute;
+            inset: -18px;
+
+            background: rgba(255,255,255,0.18);
+
+            filter: blur(28px);
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+        .world-preview-image img {
+            position: relative;
+            z-index: 1;
+
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border: 1px solid rgba(255,255,255,0.16);
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.5s ease,
+                filter 0.5s ease;
+        }
+
+        .world-preview-link:hover
+        .world-preview-image img {
+            transform: scale(1.02);
+            opacity: 0.92;
+        }
+
+        .world-preview-more {
+            margin-top: 18px;
+
+            text-align: right;
+
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+            letter-spacing: 0.14em;
+
+            color: rgba(255,255,255,0.65);
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .world-preview-link:hover
+        .world-preview-more {
+            color: rgba(255,255,255,1);
+
+            transform: translateX(-4px);
+        }
+
         /* ========================================
            GALLERY
         ======================================== */
