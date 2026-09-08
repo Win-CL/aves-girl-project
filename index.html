@@ -1763,15 +1763,18 @@
                 const page =
                     dragTargetCharacter.dataset.page;
 
-             if (page) {
+                if (page) {
+                
                     characterDetailFrame.src = page;
-
+                
                     characterDetailModal.classList.add('is-open');
-
+                
                     characterDetailModal.setAttribute(
                         'aria-hidden',
                         'false'
                     );
+                
+                    setupCharacterDetailFrame();
                 }
             }
 
@@ -1815,47 +1818,93 @@
             characterDetailFrame.src = '';
         }
         
-        /* 詳細ページをウィンドウ内で表示する際、
-           ページ側のヘッダーメニューを隠す */
+        /* 詳細ページの読み込み途中から
+           ヘッダー非表示とBACK処理を設定 */
         
-        characterDetailFrame.addEventListener('load', () => {
+        let characterDetailSetupTimer = null;
         
-            const frameDocument =
-                characterDetailFrame.contentDocument;
+        function setupCharacterDetailFrame() {
         
-            if (!frameDocument) return;
-        
-            const style =
-                frameDocument.createElement('style');
-        
-            style.textContent = `
-                header {
-                    display: none !important;
-                }
-            `;
-        
-            frameDocument.head.appendChild(style);
-        
-
-            const backLink =
-                frameDocument.querySelector('.back-link');
-            
-            if (backLink) {
-
-                backLink.removeAttribute('href');
-                
-                backLink.addEventListener('pointerdown', (event) => {
-            
-                    event.preventDefault();
-                    event.stopPropagation();
-            
-                    closeCharacterDetail();
-            
-                }, true);
-            
+            if (characterDetailSetupTimer) {
+                clearInterval(characterDetailSetupTimer);
             }
         
-        });
+            characterDetailSetupTimer =
+                setInterval(() => {
+        
+                    if (
+                        !characterDetailModal.classList.contains('is-open')
+                    ) {
+                        clearInterval(characterDetailSetupTimer);
+                        characterDetailSetupTimer = null;
+                        return;
+                    }
+        
+                    const frameDocument =
+                        characterDetailFrame.contentDocument;
+        
+                    if (!frameDocument) return;
+        
+                    /* ヘッダーを見つけたら即座に非表示 */
+        
+                    if (
+                        frameDocument.head &&
+                        !frameDocument.getElementById(
+                            'character-detail-hide-header'
+                        )
+                    ) {
+        
+                        const style =
+                            frameDocument.createElement('style');
+        
+                        style.id =
+                            'character-detail-hide-header';
+        
+                        style.textContent = `
+                            header {
+                                display: none !important;
+                            }
+                        `;
+        
+                        frameDocument.head.appendChild(style);
+                    }
+        
+                    /* BACKリンクを見つけたら即座に閉じる処理を設定 */
+        
+                    const backLink =
+                        frameDocument.querySelector('.back-link');
+        
+                    if (backLink) {
+        
+                        if (
+                            !backLink.dataset.modalCloseAttached
+                        ) {
+        
+                            backLink.removeAttribute('href');
+        
+                            backLink.addEventListener(
+                                'pointerdown',
+                                (event) => {
+        
+                                    event.preventDefault();
+                                    event.stopPropagation();
+        
+                                    closeCharacterDetail();
+        
+                                },
+                                true
+                            );
+        
+                            backLink.dataset.modalCloseAttached =
+                                'true';
+                        }
+        
+                        clearInterval(characterDetailSetupTimer);
+                        characterDetailSetupTimer = null;
+                    }
+        
+                }, 50);
+        }
         
 
         
