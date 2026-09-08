@@ -1841,24 +1841,17 @@
                 frameDocument.querySelector('.back-link');
             
             if (backLink) {
-            
-                backLink.addEventListener('click', (event) => {
-            
-                    event.preventDefault();
-                    event.stopPropagation();
-            
-                    closeCharacterDetail();
-            
-                });
-            
-                backLink.addEventListener('touchend', (event) => {
+
+                backLink.removeAttribute('href');
+                
+                backLink.addEventListener('pointerdown', (event) => {
             
                     event.preventDefault();
                     event.stopPropagation();
             
                     closeCharacterDetail();
             
-                }, { passive: false });
+                }, true);
             
             }
         
