@@ -1957,7 +1957,50 @@
             }
         
         });        
+
+        /* ========================================
+           GALLERY 最新画像の自動表示
+        ======================================== */
         
+        const galleryLatestImage =
+            document.getElementById('galleryLatestImage');
+        
+        if (galleryLatestImage) {
+        
+            let latestGalleryNumber = 100;
+        
+            function findLatestGalleryImage() {
+        
+                const testImage = new Image();
+        
+                testImage.onload = () => {
+        
+                    galleryLatestImage.src =
+                        'images/galler_' +
+                        String(latestGalleryNumber).padStart(2, '0') +
+                        '.png';
+        
+                };
+        
+                testImage.onerror = () => {
+        
+                    latestGalleryNumber--;
+        
+                    if (latestGalleryNumber >= 1) {
+                        findLatestGalleryImage();
+                    }
+        
+                };
+        
+                testImage.src =
+                    'images/galler_' +
+                    String(latestGalleryNumber).padStart(2, '0') +
+                    '.png';
+            }
+        
+            findLatestGalleryImage();
+        }
+                
         </script>
 
 
