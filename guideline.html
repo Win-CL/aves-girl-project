@@ -1082,114 +1082,101 @@ main {
 
 <script>
 
-<script>
-
-/* ========================================
-   LANGUAGE SWITCH
-======================================== */
-
-const languages = {
-
-    japanese: document.getElementById("japanese"),
-    english: document.getElementById("english"),
-    chinese: document.getElementById("chinese"),
-    korean: document.getElementById("korean")
-
-};
-
-const buttons = {
-
-    japanese: document.getElementById("languageJapanese"),
-    english: document.getElementById("languageEnglish"),
-    chinese: document.getElementById("languageChinese"),
-    korean: document.getElementById("languageKorean")
-
-};
-
-
-function switchLanguage(language) {
-
-    /* 全言語を非表示 */
-
-    Object.values(languages).forEach(function(element) {
-
-        element.style.display = "none";
-
-    });
-
-
-    /* 選択した言語を表示 */
-
-    languages[language].style.display = "block";
-
-
-    /* ボタンの選択状態を変更 */
-
-    Object.values(buttons).forEach(function(button) {
-
-        button.classList.remove("active");
-
-    });
-
-    buttons[language].classList.add("active");
-
-
-    /* HTMLの言語設定を変更 */
-
-    const langCodes = {
-
-        japanese: "ja",
-        english: "en",
-        chinese: "zh",
-        korean: "ko"
-
-    };
-
-    document.documentElement.lang = langCodes[language];
-
-}
-
-
-/* ========================================
-   BUTTON EVENTS
-======================================== */
-
-buttons.japanese.addEventListener("click", function() {
-
-    switchLanguage("japanese");
-
-});
-
-
-buttons.english.addEventListener("click", function() {
-
-    switchLanguage("english");
-
-});
-
-
-buttons.chinese.addEventListener("click", function() {
-
-    switchLanguage("chinese");
-
-});
-
-
-buttons.korean.addEventListener("click", function() {
-
-    switchLanguage("korean");
-
-});
-
-
-/* ========================================
-   INITIAL LANGUAGE
-======================================== */
-
-switchLanguage("japanese");
-
-</script>
-
+   <script>
+   
+   /* ========================================
+      LANGUAGE SWITCH
+   ======================================== */
+   
+   const languages = {
+       japanese: document.getElementById("japanese"),
+       english: document.getElementById("english"),
+       chinese: document.getElementById("chinese"),
+       korean: document.getElementById("korean")
+   };
+   
+   const buttons = {
+       japanese: document.getElementById("languageJapanese"),
+       english: document.getElementById("languageEnglish"),
+       chinese: document.getElementById("languageChinese"),
+       korean: document.getElementById("languageKorean")
+   };
+   
+   
+   function switchLanguage(language) {
+   
+       /* すべての言語を非表示 */
+       Object.values(languages).forEach(function(element) {
+   
+           if (element) {
+               element.style.display = "none";
+           }
+   
+       });
+   
+   
+       /* 選択した言語だけ表示 */
+       if (languages[language]) {
+           languages[language].style.display = "block";
+       }
+   
+   
+       /* 選択状態を更新 */
+       Object.values(buttons).forEach(function(button) {
+   
+           if (button) {
+               button.classList.remove("active");
+           }
+   
+       });
+   
+   
+       if (buttons[language]) {
+           buttons[language].classList.add("active");
+       }
+   
+   
+       /* HTMLのlang属性を変更 */
+       const langCodes = {
+           japanese: "ja",
+           english: "en",
+           chinese: "zh",
+           korean: "ko"
+       };
+   
+       document.documentElement.lang = langCodes[language];
+   
+   }
+   
+   
+   /* ========================================
+      BUTTON EVENTS
+   ======================================== */
+   
+   buttons.japanese.addEventListener("click", function() {
+       switchLanguage("japanese");
+   });
+   
+   buttons.english.addEventListener("click", function() {
+       switchLanguage("english");
+   });
+   
+   buttons.chinese.addEventListener("click", function() {
+       switchLanguage("chinese");
+   });
+   
+   buttons.korean.addEventListener("click", function() {
+       switchLanguage("korean");
+   });
+   
+   
+   /* ========================================
+      INITIAL LANGUAGE
+   ======================================== */
+   
+   switchLanguage("japanese");
+   
+   </script>
 
 </body>
 </html>
