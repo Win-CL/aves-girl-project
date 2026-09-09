@@ -477,79 +477,99 @@
         /* ========================================
            スマートフォン対応
         ======================================== */
-
+        
         @media (max-width: 800px) {
-
+        
+            nav {
+                display: none;
+            }
+        
+            .menu-toggle {
+                display: flex;
+            }
+        
+            nav.open {
+                display: flex;
+        
+                position: absolute;
+        
+                top: 100%;
+                left: 0;
+        
+                width: 100%;
+        
+                flex-direction: column;
+        
+                gap: 0;
+        
+                padding: 20px 0;
+        
+                background: rgba(8, 10, 18, 0.97);
+        
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+        
+            nav.open a {
+                display: block;
+        
+                padding: 18px 30px;
+        
+                text-align: center;
+            }
+        
             .header-inner {
                 padding: 18px 20px;
-
-                flex-direction: column;
-                align-items: flex-start;
-
-                gap: 15px;
             }
-
-            nav {
-                width: 100%;
-
-                gap: 18px;
-
-                overflow-x: auto;
-                padding-bottom: 4px;
-            }
-
-            nav a {
-                flex-shrink: 0;
-            }
-
-            main {
-                padding: 70px 20px 90px;
-            }
-
-            .page-title {
-                margin-bottom: 70px;
-            }
-
+        
             section {
                 margin-bottom: 90px;
             }
-
+        
+            main {
+                padding: 70px 20px 90px;
+            }
+        
+            .page-title {
+                margin-bottom: 70px;
+            }
+        
             .introduction {
                 padding: 35px 25px;
             }
-
+        
             .introduction p {
                 font-size: 14px;
             }
-
+        
             .setting-grid {
                 grid-template-columns: 1fr;
             }
-
+        
             .setting-card {
                 min-height: auto;
                 padding: 30px;
             }
-
+        
             .species-box {
                 padding: 35px 25px;
             }
-
+        
             .species-box h3 {
                 font-size: 25px;
             }
-
+        
             .notes-list {
                 grid-template-columns: 1fr;
             }
-
+        
             .note {
                 padding: 30px;
             }
-
+        
             footer {
                 padding: 35px 20px;
             }
+        
         }
     </style>
 </head>
@@ -620,7 +640,7 @@
                     INTRODUCTION
                 </span>
 
-                <h2>この世界について</h2>
+                <h2>世界設定</h2>
 
             </div>
 
