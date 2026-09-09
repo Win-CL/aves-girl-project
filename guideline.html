@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GUIDELINE | AVES GIRL PROJECT</title>
+
+<style>
+
+/* ========================================
+   BASE
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #07080f;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    height: 49px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 11.5%;
+
+    background: #080910;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+.nav {
+    margin-left: auto;
+
+    display: flex;
+    gap: 28px;
+}
+
+.nav a {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    color: rgba(255,255,255,0.65);
+
+    transition: color 0.2s ease;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+
+/* ========================================
+   LANGUAGE TAG
+======================================== */
+
+.language-tag {
+    position: fixed;
+
+    top: 72px;
+    left: 28px;
+
+    z-index: 100;
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255,255,255,0.28);
+
+    background: #11131d;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transform: rotate(-2deg);
+
+    box-shadow: 3px 3px 0 rgba(255,255,255,0.06);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.language-tag:hover {
+    background: #191c28;
+    transform: rotate(0deg);
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+main {
+    width: 100%;
+    max-width: 960px;
+
+    margin: 0 auto;
+
+    padding: 80px 40px 100px;
+}
+
+.page-title {
+    text-align: center;
+
+    margin-bottom: 65px;
+}
+
+.page-title h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+    letter-spacing: 5px;
+}
+
+.page-title p {
+    margin: 14px 0 0;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.45);
+}
+
+
+/* ========================================
+   GUIDELINE CONTENT
+======================================== */
+
+.guideline-box {
+    border: 1px solid rgba(255,255,255,0.12);
+
+    padding: 55px 65px;
+
+    background: rgba(0,0,0,0.12);
+}
+
+.guideline-section {
+    margin-bottom: 55px;
+}
+
+.guideline-section:last-child {
+    margin-bottom: 0;
+}
+
+.guideline-section h2 {
+    margin: 0 0 22px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+.guideline-section h3 {
+    margin: 28px 0 13px;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.guideline-section p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 2;
+
+    color: rgba(255,255,255,0.78);
+}
+
+.guideline-section ul {
+    margin: 14px 0 0;
+    padding-left: 22px;
+}
+
+.guideline-section li {
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.78);
+}
+
+.guideline-note {
+    margin-top: 22px;
+
+    padding: 18px 20px;
+
+    border-left: 2px solid rgba(255,255,255,0.25);
+
+    background: rgba(255,255,255,0.025);
+}
+
+
+/* ========================================
+   BACK
+======================================== */
+
+.back-link {
+    display: block;
+
+    margin-top: 55px;
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.65);
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+
+/* ========================================
+   LANGUAGE DISPLAY
+======================================== */
+
+#english {
+    display: none;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .nav {
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    main {
+        padding: 65px 18px 80px;
+    }
+
+    .page-title {
+        margin-bottom: 40px;
+    }
+
+    .page-title h1 {
+        font-size: 27px;
+        letter-spacing: 3px;
+    }
+
+    .guideline-box {
+        padding: 35px 25px;
+    }
+
+    .guideline-section {
+        margin-bottom: 42px;
+    }
+
+    .guideline-section h2 {
+        font-size: 18px;
+    }
+
+    .guideline-section p,
+    .guideline-section li {
+        font-size: 12px;
+    }
+
+    .language-tag {
+        top: 62px;
+        left: 14px;
+
+        padding: 8px 12px;
+
+        font-size: 10px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     HEADER
+======================================== -->
+
+<header>
+
+    <div class="logo">
+        AVES GIRL
+    </div>
+
+    <nav class="nav">
+        <a href="index.html#characters">CHARACTERS</a>
+        <a href="world.html">WORLD</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="index.html#copyright">COPYRIGHT</a>
+    </nav>
+
+</header>
+
+
+<!-- ========================================
+     LANGUAGE TAG
+======================================== -->
+
+<button
+    class="language-tag"
+    id="languageToggle"
+    type="button"
+>
+    ENGLISH
+</button>
+
+
+<!-- ========================================
+     MAIN
+======================================== -->
+
+<main>
+
+
+    <!-- ========================================
+         JAPANESE
+    ======================================== -->
+
+    <div id="japanese">
+
+        <div class="page-title">
+
+            <h1>GUIDELINE</h1>
+
+            <p>AVES GIRL PROJECT</p>
+
+        </div>
+
+
+        <div class="guideline-box">
+
+
+            <section class="guideline-section">
+
+                <h2>1. 原作素材の利用について</h2>
+
+                <p>
+                    本サイトに掲載されているAVES GIRL PROJECTのキャラクター、キャラクターデザイン、設定、イラスト、画像等について、
+                    <strong>無断転載・複製・再配布・二次利用を禁止します。</strong>
+                </p>
+
+                <p class="guideline-note">
+                    ここでいう「二次利用」とは、本サイトに掲載されている著作物そのもの、またはその一部を、
+                    原作素材として再使用・転載・複製・再配布・加工・編集・再公開等することを指します。
+                </p>
+
+                <p style="margin-top:22px;">
+                    ただし、<strong>著作権法その他の法令により認められている利用（適法な引用等）を妨げるものではありません。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    なお、生成AIへの入力・参照等については、「3. 生成AIでの利用について」に別途定めます。
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>2. 二次創作について</h2>
+
+                <p>
+                    AVES GIRL PROJECTを題材とした<strong>二次創作そのものを禁止するものではありません。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    無償で行われる二次創作については、当サイトの原作素材そのものを二次利用する行為に該当しない限り、これを許可します。
+                </p>
+
+                <p style="margin-top:22px;">
+                    ただし、<strong>営利・非営利を問わず、二次創作に関連して金銭のやりとりが発生する行為を禁止します。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    Skeb等のコミッションサービスを利用した依頼・リクエストなど、
+                    <strong>金銭が発生する場での二次創作の依頼・制作</strong>もこれに含まれます。
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>3. 生成AIでの利用について</h2>
+
+
+                <h3>AI学習について</h3>
+
+                <p>
+                    当サイトに掲載されている作品を、
+                    <strong>生成AI等の学習目的で利用すること自体は禁止しません。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    また、当サイトのキャラクターを対象とした
+                    <strong>LoRA等の追加学習モデルの作成・個人利用も許可します。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    ただし、以下の行為は禁止します。
+                </p>
+
+                <ul>
+                    <li><strong>LoRA等の追加学習モデルそのものの公開・配布・共有（無償・有償を問わない）</strong></li>
+                    <li><strong>当サイトのキャラクター画像等を利用した素材・データセットの再配布</strong></li>
+                    <li><strong>当サイトの画像等を、そのまま素材として第三者へ再配布・共有する行為</strong></li>
+                </ul>
+
+
+                <h3>生成AIへの入力・参照について</h3>
+
+                <p>
+                    当サイトのイラスト等を、生成AIによる
+                    <strong>画像生成・画像変換・動画生成・動画変換・画像加工等の入力素材・参照素材として使用すること自体は、一律に禁止しません。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    当サイトのイラスト等を参考として、
+                    <strong>新たな構図・ポーズ・場面・演出・表現による二次創作を制作することは許可します。</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    ただし、当サイトのイラスト等を入力・参照することによって、
+                    <strong>
+                    元のイラストの構図、ポーズ、画面構成、キャラクターの描写、その他の創作的表現を実質的に再現し、
+                    元のイラストと実質的に同一または高度に類似する画像・動画等を生成することを禁止します。
+                    </strong>
+                </p>
+
+                <p class="guideline-note">
+                    特に、元画像をほぼそのまま再現・変換することを目的とした
+                    <strong>img2img、image-to-video等の利用</strong>や、
+                    元画像の創作的表現を大きく維持した画像・動画等の生成を禁止します。
+                </p>
+
+                <p style="margin-top:22px;">
+                    一方で、生成AIを利用して当サイトのキャラクターを
+                    <strong>新たな構図・ポーズ・場面・演出等で描く二次創作</strong>については、これを許可します。
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>4. ガイドラインについて</h2>
+
+                <p>
+                    本ガイドラインは、AVES GIRL PROJECTの作品・キャラクター等について、
+                    当プロジェクトとして許可・禁止する利用範囲を示すものです。
+                </p>
+
+                <p style="margin-top:22px;">
+                    著作権法その他の法令により認められている利用については、
+                    本ガイドラインによって制限するものではありません。
+                </p>
+
+                <p style="margin-top:22px;">
+                    また、AI技術や関連サービスの発展、法令・制度の変更等により、
+                    本ガイドラインの内容を変更する場合があります。
+                </p>
+
+            </section>
+
+
+        </div>
+
+
+        <a class="back-link" href="index.html#copyright">
+            ← BACK TO TOP
+        </a>
+
+    </div>
+
+
+
+    <!-- ========================================
+         ENGLISH
+    ======================================== -->
+
+    <div id="english">
+
+        <div class="page-title">
+
+            <h1>GUIDELINE</h1>
+
+            <p>AVES GIRL PROJECT</p>
+
+        </div>
+
+
+        <div class="guideline-box">
+
+
+            <section class="guideline-section">
+
+                <h2>1. Use of Original Materials</h2>
+
+                <p>
+                    Unauthorized reproduction, redistribution, reposting, or secondary use of
+                    AVES GIRL PROJECT characters, character designs, settings, illustrations,
+                    images, and other materials published on this website is prohibited.
+                </p>
+
+                <p class="guideline-note">
+                    In these guidelines, "secondary use" refers to reusing, reposting,
+                    reproducing, redistributing, modifying, editing, republishing, or otherwise
+                    reusing the original copyrighted materials or any part thereof as source material.
+                </p>
+
+                <p style="margin-top:22px;">
+                    This does not restrict uses permitted under copyright law or other applicable laws,
+                    including lawful quotation.
+                </p>
+
+                <p style="margin-top:22px;">
+                    The use of these materials as inputs or references for generative AI is addressed separately in Section 3.
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>2. Fan-Created Works</h2>
+
+                <p>
+                    Fan-created works based on AVES GIRL PROJECT are
+                    <strong>not prohibited.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    Non-commercial fan-created works are permitted as long as they do not constitute
+                    secondary use of the original materials published on this website.
+                </p>
+
+                <p style="margin-top:22px;">
+                    However, <strong>any monetary transaction associated with fan-created works is prohibited,
+                    regardless of whether it is commercial or non-commercial in nature.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    This includes commissions and requests made through services such as Skeb,
+                    where payment is involved in the creation of fan-created works.
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>3. Use with Generative AI</h2>
+
+
+                <h3>AI Training</h3>
+
+                <p>
+                    The use of works published on this website for the purpose of training
+                    generative AI systems is <strong>not prohibited in itself.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    The creation and personal use of additional training models such as
+                    <strong>LoRA models based on AVES GIRL PROJECT characters is also permitted.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    However, the following activities are prohibited:
+                </p>
+
+                <ul>
+                    <li><strong>Public release, distribution, or sharing of LoRA or other additional training models themselves, whether free or paid.</strong></li>
+                    <li><strong>Redistribution of materials or datasets created using character images from this website.</strong></li>
+                    <li><strong>Redistribution or sharing of images or other materials from this website as source materials to third parties.</strong></li>
+                </ul>
+
+
+                <h3>Use as Inputs or References for Generative AI</h3>
+
+                <p>
+                    The use of illustrations and other materials from this website as inputs or references
+                    for image generation, image transformation, video generation, video transformation,
+                    image editing, or similar generative AI processes is
+                    <strong>not prohibited in itself.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    Using these illustrations as references to create fan-created works with
+                    <strong>new compositions, poses, scenes, directions, or other forms of expression is permitted.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    However, it is prohibited to use the illustrations or other materials from this website
+                    as inputs or references in order to substantially reproduce the original illustration's
+                    composition, pose, screen layout, character depiction, or other creative expression,
+                    resulting in an image or video that is substantially identical or highly similar to the original.
+                </p>
+
+                <p class="guideline-note">
+                    In particular, the use of
+                    <strong>img2img, image-to-video, or similar methods intended to reproduce or transform
+                    the original image with its creative expression substantially retained is prohibited.</strong>
+                </p>
+
+                <p style="margin-top:22px;">
+                    On the other hand, fan-created works using generative AI to depict AVES GIRL PROJECT
+                    characters with <strong>new compositions, poses, scenes, directions, or other creative expressions</strong>
+                    are permitted.
+                </p>
+
+            </section>
+
+
+            <section class="guideline-section">
+
+                <h2>4. About These Guidelines</h2>
+
+                <p>
+                    These guidelines define the types of use that AVES GIRL PROJECT permits or prohibits
+                    with regard to its works and characters.
+                </p>
+
+                <p style="margin-top:22px;">
+                    These guidelines do not restrict uses that are otherwise permitted under
+                    copyright law or other applicable laws.
+                </p>
+
+                <p style="margin-top:22px;">
+                    These guidelines may be revised in response to developments in AI technology,
+                    related services, or changes in laws and regulations.
+                </p>
+
+            </section>
+
+
+        </div>
+
+
+        <a class="back-link" href="index.html#copyright">
+            ← BACK TO TOP
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<script>
+
+/* ========================================
+   LANGUAGE SWITCH
+======================================== */
+
+const languageToggle = document.getElementById("languageToggle");
+
+const japanese = document.getElementById("japanese");
+
+const english = document.getElementById("english");
+
+languageToggle.addEventListener("click", function() {
+
+    const isJapanese = japanese.style.display !== "none";
+
+    if (isJapanese) {
+
+        japanese.style.display = "none";
+        english.style.display = "block";
+
+        languageToggle.textContent = "日本語";
+
+        document.documentElement.lang = "en";
+
+    } else {
+
+        japanese.style.display = "block";
+        english.style.display = "none";
+
+        languageToggle.textContent = "ENGLISH";
+
+        document.documentElement.lang = "ja";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
