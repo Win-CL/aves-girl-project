@@ -32,45 +32,71 @@
         }
 
 
-        /* ================================
+        /* ========================================
            HEADER
-        ================================ */
-
+        ======================================== */
+        
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 32px;
-            background: rgba(8,10,17,0.92);
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
         }
-
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
         .logo {
+            font-family: Georgia, serif;
             font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.18em;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
         }
-
+        
         nav {
             display: flex;
-            gap: 32px;
+            gap: 28px;
+            font-size: 13px;
+            letter-spacing: 0.12em;
         }
-
+        
         nav a {
-            color: rgba(255,255,255,0.65);
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 0.15em;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
+            position: relative;
             color: #ffffff;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 1;
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 1px;
+            background: #ffffff;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
 
 
