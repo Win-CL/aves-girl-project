@@ -361,68 +361,96 @@ footer {
    
 
 /* ========================================
-   MOBILE
+   スマートフォン対応
 ======================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-    header {
-        padding: 0 20px;
-    }
-
-    .nav {
-        gap: 12px;
-    }
-
-    .nav a {
-        font-size: 9px;
-    }
-
-    main {
-        padding: 65px 18px 80px;
-    }
-
-    .page-title {
-        margin-bottom: 40px;
-    }
-
-    .page-title h1 {
-        font-size: 27px;
-        letter-spacing: 3px;
-    }
-
-    .guideline-box {
-        padding: 35px 25px;
-    }
-
-    .guideline-section {
-        margin-bottom: 42px;
-    }
-
-    .guideline-section h2 {
-        font-size: 18px;
-    }
-
-    .guideline-section p,
-    .guideline-section li {
-        font-size: 12px;
-    }
-
-   .language-switcher {
-       top: 62px;
-       left: 14px;
-   }
+       nav {
+           display: none;
+       }
    
-   .language-button {
-       font-size: 9px;
-   }
+       .menu-toggle {
+           display: flex;
+       }
    
-   .language-button.active {
-       padding: 8px 12px;
-       font-size: 11px;
+       nav.open {
+           display: flex;
+   
+           position: absolute;
+   
+           top: 100%;
+           left: 0;
+   
+           width: 100%;
+   
+           flex-direction: column;
+   
+           gap: 0;
+   
+           padding: 20px 0;
+   
+           background: rgba(8, 10, 18, 0.97);
+   
+           border-bottom: 1px solid rgba(255,255,255,0.08);
+       }
+   
+       nav.open a {
+           display: block;
+   
+           padding: 18px 30px;
+   
+           text-align: center;
+       }
+   
+       .header-inner {
+           padding: 18px 20px;
+       }
+   
+       main {
+           padding: 80px 18px 80px;
+       }
+   
+       .page-title {
+           margin-bottom: 40px;
+       }
+   
+       .page-title h1 {
+           font-size: 27px;
+           letter-spacing: 3px;
+       }
+   
+       .guideline-box {
+           padding: 35px 25px;
+       }
+   
+       .guideline-section {
+           margin-bottom: 42px;
+       }
+   
+       .guideline-section h2 {
+           font-size: 18px;
+       }
+   
+       .guideline-section p,
+       .guideline-section li {
+           font-size: 12px;
+       }
+   
+       .language-switcher {
+           top: 62px;
+           left: 14px;
+       }
+   
+       .language-button {
+           font-size: 9px;
+       }
+   
+       .language-button.active {
+           padding: 8px 12px;
+           font-size: 11px;
+       }
    }
-}
-
 </style>
 </head>
 
