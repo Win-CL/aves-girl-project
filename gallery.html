@@ -297,15 +297,7 @@
         }
 
         @media (max-width: 500px) {
-
-            .logo {
-                font-size: 16px;
-            }
-
-            nav {
-                gap: 10px;
-            }
-
+        
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -483,6 +475,15 @@
         © 2026 AVES GIRL PROJECT.
         ALL RIGHTS RESERVED.
     </footer>
+
+    <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+    </script>
     
 </body>
 </html>
