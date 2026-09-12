@@ -720,10 +720,14 @@
             0 0 30px rgba(255,255,255,0.12);
     }
     
+    /* ========================================
+       中央選択キャラクターを強調
+    ======================================== */
+    
     .carousel-character.is-center {
         transform:
             translate(calc(-50% + var(--drag-x, 0px)), -50%)
-            scale(1);
+            scale(1.12);
     
         opacity: 1;
         filter: brightness(1);
@@ -735,10 +739,10 @@
     .carousel-character.is-left {
         transform:
             translate(calc(-50% - 270px + var(--drag-x, 0px)), -50%)
-            scale(0.78);
+            scale(0.70);
     
-        opacity: 0.72;
-        filter: brightness(0.7);
+        opacity: 0.65;
+        filter: brightness(0.65);
     
         z-index: 4;
         pointer-events: auto;
@@ -747,10 +751,10 @@
     .carousel-character.is-right {
         transform:
             translate(calc(-50% + 270px + var(--drag-x, 0px)), -50%)
-            scale(0.78);
+            scale(0.70);
     
-        opacity: 0.72;
-        filter: brightness(0.7);
+        opacity: 0.65;
+        filter: brightness(0.65);
     
         z-index: 4;
         pointer-events: auto;
