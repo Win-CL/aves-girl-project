@@ -163,6 +163,62 @@
 		 opacity: 0.45;
 	}
 
+		/* ========================================
+	   追加キャラクタービジュアル
+	======================================== */
+	
+	.character-extra {
+	    max-width: 900px;
+	    margin: -55px auto 100px;
+	}
+	
+	.character-extra-grid {
+	    display: grid;
+	    grid-template-columns: repeat(4, 1fr);
+	    gap: 18px;
+	}
+	
+	.character-extra-item {
+	    text-align: center;
+	}
+	
+	.character-extra-item img {
+	    display: block;
+	    width: 100%;
+	    height: auto;
+	    background: #11141e;
+	}
+	
+	.character-extra-caption {
+	    margin: 10px 0 0;
+	    font-size: 10px;
+	    letter-spacing: 0.12em;
+	    opacity: 0.55;
+	}
+	
+	
+	/* ========================================
+	   スマホ用
+	======================================== */
+	
+	@media (max-width: 800px) {
+	
+	    .character-extra {
+	        margin: -25px auto 70px;
+	    }
+	
+	    .character-extra-grid {
+	        grid-template-columns: repeat(2, 1fr);
+	        gap: 16px;
+	    }
+	
+	    .character-extra-caption {
+	        font-size: 9px;
+	        letter-spacing: 0.08em;
+	    }
+	
+	}
+
 	.info-section {
 		 max-width: 900px;
 		 margin: 0 auto 90px;
@@ -397,6 +453,36 @@
 
 	    </div>
 
+
+		<section class="character-extra">
+	
+	      <div class="character-extra-grid">
+	
+	        <div class="character-extra-item">
+	          <img src="images/raimy_face01.png" alt="ライミィ・アバンドール 表情差分①">
+	          <p class="character-extra-caption">表情差分①</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/raimy_face02.png" alt="ライミィ・アバンドール 表情差分②">
+	          <p class="character-extra-caption">表情差分②</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/raimy_face03.png" alt="ライミィ・アバンドール 表情差分③">
+	          <p class="character-extra-caption">表情差分③</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/raimy_Sticker01.png" alt="ライミィ・アバンドール ステッカー">
+	          <p class="character-extra-caption">ステッカー</p>
+	        </div>
+	
+	      </div>
+	
+	    </section>
+
+		  
 	    <section class="info-section">
 
 	      <h2 class="section-title">CHARACTER INFORMATION</h2>
@@ -421,7 +507,7 @@
 	      <div class="bird-profile-box">
 
 	        <div class="info-item"><div class="info-label">BIRD MOTIF</div><div class="info-value">コトドリ</div></div>
-	        <div class="info-item"><div class="info-label">SCIENTIFIC NAME</div><div class="info-value"><i>Menura novaehollandia</i></div></div>
+	        <div class="info-item"><div class="info-label">SCIENTIFIC NAME</div><div class="info-value"><i>Menura novaehollandiae</i></div></div>
 	        <p class="bird-description">オーストラリア東部の森林などに生息する鳥。チェーンソー、車のエンジン、レーザー光線など周囲の音を驚くほど精密にまねることで知られている。</p>
 
 	      </div>
