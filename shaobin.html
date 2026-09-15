@@ -352,6 +352,104 @@
 		 	 padding: 40px 20px;
 		 }
 	}
+
+
+		/* ========================================
+	   追加キャラクタービジュアル
+	======================================== */
+	
+	.character-extra {
+	    max-width: 900px;
+	    margin: -55px auto 100px;
+	}
+	
+	.character-extra-grid {
+	    display: grid;
+	    grid-template-columns: repeat(4, 1fr);
+	    gap: 18px;
+	}
+	
+	.character-extra-item {
+	    text-align: center;
+	}
+	
+	.character-extra-item img {
+	    display: block;
+	    width: 100%;
+	    height: auto;
+	    background: #11141e;
+	}
+	
+	.character-extra-caption {
+	    margin: 10px 0 0;
+	    font-size: 10px;
+	    letter-spacing: 0.12em;
+	    opacity: 0.55;
+	}
+	
+	
+	/* ========================================
+	   スマホ用
+	======================================== */
+	
+	@media (max-width: 800px) {
+	
+	    .character-extra {
+	        margin: -25px auto 70px;
+	    }
+	
+	    .character-extra-grid {
+	        grid-template-columns: repeat(2, 1fr);
+	        gap: 16px;
+	    }
+	
+	    .character-extra-caption {
+	        font-size: 9px;
+	        letter-spacing: 0.08em;
+	    }
+	
+	}
+
+
+		/* ========================================
+	   CHARACTER THEME VIDEO
+	======================================== */
+
+	.character-theme {
+		 max-width: 900px;
+		 margin: 0 auto 90px;
+	}
+
+	.character-theme-video {
+		 width: 100%;
+		 display: flex;
+		 justify-content: center;
+	}
+
+	.character-theme-video video {
+		 display: block;
+		 width: min(480px, 100%);
+		 height: auto;
+		 background: #11141e;
+	}
+
+
+	/* ========================================
+	   CHARACTER THEME VIDEO：スマホ
+	======================================== */
+
+	@media (max-width: 800px) {
+
+		 .character-theme {
+		 	 margin-bottom: 70px;
+		 }
+
+		 .character-theme-video video {
+		 	 width: min(360px, 100%);
+		 }
+
+	}
+
 	
 			</style>
 	
@@ -396,7 +494,37 @@
 	      <div><img src="images/shaobin_2.png" alt="青 紹彬 設定イラスト"><p class="image-caption">CHARACTER DESIGN</p></div>
 
 	    </div>
-
+	
+	
+	    <section class="character-extra">
+	
+	      <div class="character-extra-grid">
+	
+	        <div class="character-extra-item">
+	          <img src="images/shaobin_face01.png" alt="青 紹彬 表情差分①">
+	          <p class="character-extra-caption">表情差分①</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/shaobin_face02.png" alt="青 紹彬 表情差分②">
+	          <p class="character-extra-caption">表情差分②</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/shaobin_face03.png" alt="青 紹彬 表情差分③">
+	          <p class="character-extra-caption">表情差分③</p>
+	        </div>
+	
+	        <div class="character-extra-item">
+	          <img src="images/shaobin_sticker01.png" alt="青 紹彬 ステッカー">
+	          <p class="character-extra-caption">ステッカー</p>
+	        </div>
+	
+	      </div>
+	
+	    </section>
+	
+	
 	    <section class="info-section">
 
 	      <h2 class="section-title">CHARACTER INFORMATION</h2>
