@@ -450,6 +450,69 @@
 	
 		}
 
+
+		/* ========================================
+		   モチーフ鳥イラスト：BIRD PROFILE
+		======================================== */
+	
+		.bird-profile-top {
+			 display: grid;
+			 grid-template-columns: 1fr 190px;
+			 align-items: stretch;
+		}
+	
+		.bird-profile-info {
+			 min-width: 0;
+		}
+	
+		.bird-profile-info .info-item {
+			 margin: 0;
+		}
+	
+		.bird-motif-image {
+			 display: flex;
+			 align-items: center;
+			 justify-content: center;
+			 padding: 10px 10px 10px 20px;
+			 border-left: 1px solid rgba(255,255,255,0.1);
+		}
+	
+		.bird-motif-image img {
+			 display: block;
+			 width: auto;
+			 max-width: 150px;
+			 max-height: 180px;
+			 height: auto;
+		}
+	
+		.bird-description {
+			 padding-top: 28px;
+			 border-top: 1px solid rgba(255,255,255,0.1);
+		}
+	
+	
+		/* ========================================
+		   モチーフ鳥イラスト：スマホ
+		======================================== */
+	
+		@media (max-width: 800px) {
+	
+			 .bird-profile-top {
+			 	 grid-template-columns: 1fr;
+			 }
+	
+			 .bird-motif-image {
+			 	 padding: 25px 0 10px;
+			 	 border-left: none;
+			 }
+	
+			 .bird-motif-image img {
+			 	 max-width: 150px;
+			 	 max-height: 160px;
+			 }
+	
+		}
+
 			</style>
 
 		</head>
@@ -545,13 +608,33 @@
 
 	      <h2 class="section-title">BIRD PROFILE</h2>
 
-	      <div class="bird-profile-box">
-
-	        <div class="info-item"><div class="info-label">BIRD MOTIF</div><div class="info-value">モズ</div></div>
-	        <div class="info-item"><div class="info-label">SCIENTIFIC NAME</div><div class="info-value"><i>Lanius bucephalus</i></div></div>
-	        <p class="bird-description">日本を含む東アジアに生息する猛禽的な性質を持つ小鳥。捕らえた獲物を尖った枝などに刺して保存する「早贄（はやにえ）」という習性を持つ。</p>
-
-	      </div>
+			<div class="bird-profile-box">
+			
+			  <div class="bird-profile-top">
+			
+			    <div class="bird-profile-info">
+			
+			      <div class="info-item">
+			        <div class="info-label">BIRD MOTIF</div>
+			        <div class="info-value">モズ</div>
+			      </div>
+			
+			      <div class="info-item">
+			        <div class="info-label">SCIENTIFIC NAME</div>
+			        <div class="info-value"><i>Lanius bucephalus</i></div>
+			      </div>
+			
+			    </div>
+			
+			    <div class="bird-motif-image">
+			      <img src="images/isumi_motif" alt="モズ">
+			    </div>
+			
+			  </div>
+			
+			  <p class="bird-description">日本を含む東アジアに生息する猛禽的な性質を持つ小鳥。捕らえた獲物を尖った枝などに刺して保存する「早贄（はやにえ）」という習性を持つ。</p>
+			
+			</div>
 
 	    </section>
 
