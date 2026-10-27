@@ -587,9 +587,56 @@
 
 	<footer><p>© AVES GIRL PROJECT</p></footer>
 		<script>
-			const menuToggle = document.querySelector('.menu-toggle');
-			const nav = document.querySelector('nav');
-			menuToggle.addEventListener('click', () => { nav.classList.toggle('open'); });
+		    const menuToggle = document.querySelector('.menu-toggle');
+		    const nav = document.querySelector('nav');
+		
+		    menuToggle.addEventListener('click', () => {
+		        nav.classList.toggle('open');
+		    });
+		
+		    /* ========================================
+		       キャラクター名の自動サイズ調整
+		    ======================================== */
+		
+		    const characterName = document.querySelector('.character-name');
+		
+		    function fitCharacterName() {
+		        if (!characterName) return;
+		
+		        const isMobile = window.matchMedia('(max-width: 800px)').matches;
+		        const minFontSize = isMobile ? 22 : 34;
+		
+		        /* 元のCSSサイズに戻してから測定 */
+		        characterName.style.fontSize = '';
+		        characterName.style.whiteSpace = 'nowrap';
+		
+		        let fontSize = parseFloat(
+		            window.getComputedStyle(characterName).fontSize
+		        );
+		
+		        /* 名前が横幅に収まるまで1pxずつ縮小 */
+		        while (
+		            characterName.scrollWidth > characterName.clientWidth &&
+		            fontSize > minFontSize
+		        ) {
+		            fontSize = Math.max(minFontSize, fontSize - 1);
+		            characterName.style.fontSize = `${fontSize}px`;
+		        }
+		
+		        /* 最小サイズでも収まらなければ自然に折り返す */
+		        if (characterName.scrollWidth > characterName.clientWidth) {
+		            characterName.style.fontSize = `${minFontSize}px`;
+		            characterName.style.whiteSpace = 'normal';
+		        }
+		    }
+		
+		    /* 初回表示・画面サイズ変更・フォント読み込み後に調整 */
+		    window.addEventListener('resize', fitCharacterName);
+		    requestAnimationFrame(fitCharacterName);
+		
+		    if (document.fonts && document.fonts.ready) {
+		        document.fonts.ready.then(fitCharacterName);
+		    }
 		</script>
 	</body>
 	</html>
